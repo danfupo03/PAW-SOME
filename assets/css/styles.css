@@ -136,7 +136,7 @@ a {
 }
 
 .button.is-light:hover {
-  background-color: #f9f9f9;
+  background-color: #f38b61;
 }
 
 .button.is-danger {
@@ -216,7 +216,8 @@ a {
 
 /* Content */
 .content {
-  font-size: 1.3rem;
+  font-size: 1 rem;
+  text-align: justify;
 }
 
 /* Cards */
@@ -242,5 +243,26 @@ a {
 
 .card-content img {
   max-width: 100%;
-  height: 200px
+  height: 200px;
+}
+
+/* Contact card */
+.contact-card {
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-card p {
+  display: flex;
+  gap: 10px;
+  margin: 0;
+}
+
+.contact-card i {
+  color: #f0932b;
 }
