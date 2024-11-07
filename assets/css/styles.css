@@ -220,32 +220,28 @@ a {
   font-size: 1.1rem;
 }
 
-/* Products */
-.products {
-  display: grid;
-  grid-template-columns: 33% 33% 33%;
+/* Cards */
+.cards-container {
+  display: flex;
   gap: 20px;
+  justify-content: center;
 }
 
 .card {
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 4px;
+  width: 300px;
+  border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 100%;
 }
 
 .card-content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+  align-items: center;
+  padding: 20px;
 }
 
 .card-content img {
   max-width: 100%;
-  height: 50%;
-}
-
-.card a.button {
-  margin-top: auto;
+  height: 200px
 }
