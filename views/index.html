@@ -11,11 +11,15 @@
       src="https://kit.fontawesome.com/87b5cb0a2b.js"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Stylesheet -->
+    <link defer rel="stylesheet" href="../assets/css/styles.css" />
+    <link defer rel="stylesheet" href="../assets/css/variables.css" />
   </head>
   <body>
-    <nav>
-      <div>
-        <div>
+    <nav class="navbar">
+      <div class="navbar-start">
+        <div class="navbar-brand">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
@@ -28,38 +32,40 @@
             />
           </svg>
         </div>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-        </ul>
+        <a class="button is-primary" href="index.html"
+          ><i class="fa-solid fa-house"></i> Home</a
+        >
       </div>
       <div>
         <!-- Not logged in -->
-        <a href="login.html"
+        <a class="button is-secondary" href="login.html"
           ><i class="fa-solid fa-right-to-bracket"></i> Login</a
         >
         <!-- Logged in -->
-        <a href="customer.html"><i class="fa-solid fa-user"></i> Profile</a>
-        <a href="logout.html">
+        <a class="button is-dark" href="customer.html"
+          ><i class="fa-solid fa-user"></i
+        ></a>
+        <a class="button is-danger" href="logout.html">
           <i class="fa-solid fa-right-from-bracket"></i> Logout
         </a>
       </div>
     </nav>
 
-    <section>
-      <div>
-        <h1>Welcome to Paw-some</h1>
+    <section class="hero">
+      <div class="hero-text ml-5">
+        <h1 class="title is-2">Welcome to Paw-some</h1>
         <p>Everything you are looking for your best friend in one place.</p>
-        <a href="about.html">About us</a>
+        <a class="button is-info" href="about.html">About us</a>
       </div>
-      <div>
-        <img src="/assets/images/dog.png" alt="Dog cartoon" width="300" />
+      <div class="hero-image">
+        <img src="/assets/images/dog.png" alt="Dog cartoon" />
       </div>
     </section>
 
     <section>
-      <div>
-        <h2>General Information</h2>
-        <p>
+      <div class="container mb-5">
+        <h2 class="title is-2">General Information</h2>
+        <p class="content">
           In Paw-some we care about your furry friends. We offer a wide range of
           products and services to meet your needs. Whether you're looking for
           food, toys or any hygiene products, we have got you covered.
@@ -68,30 +74,38 @@
     </section>
 
     <section>
-      <div>
-        <h2>Our Services</h2>
-        <div>
-          <div>
-            <h3>Food</h3>
-            <img src="/assets/images/dogFood.png" alt="Dog Food" width="200" />
-            <p>Find the best food for your pet.</p>
-            <a href="foodList.html">View products</a>
+      <div class="container mb-5">
+        <h2 class="title is-2">Our Services</h2>
+        <div class="products">
+          <div class="card">
+            <div class="card-content">
+              <img src="/assets/images/dogFood.png" alt="Dog Food" />
+              <h3 class="title is-4">Food</h3>
+              <p>Find the best food for your pet.</p>
+              <a class="button is-primary" href="foodList.html"
+                >View products</a
+              >
+            </div>
           </div>
-          <div>
-            <h3>Hygiene</h3>
-            <img
-              src="/assets/images/dogHygiene.png"
-              alt="Dog Hygiene"
-              width="200"
-            />
-            <p>Keep your pet clean and healthy.</p>
-            <a href="hygieneList.html">View products</a>
+          <div class="card">
+            <div class="card-content">
+              <img src="/assets/images/dogHygiene.png" alt="Dog Hygiene" />
+              <h3 class="title is-4">Hygiene</h3>
+              <p>Keep your pet clean and healthy.</p>
+              <a class="button is-primary" href="hygieneList.html"
+                >View products</a
+              >
+            </div>
           </div>
-          <div>
-            <h3>Toys</h3>
-            <img src="/assets/images/dogToys.png" alt="Dog" width="200" />
-            <p>Find the best toys and accessories for your pet.</p>
-            <a href="toysList.html">View products</a>
+          <div class="card">
+            <div class="card-content">
+              <img src="/assets/images/dogToys.png" alt="Dog" />
+              <h3 class="title is-4">Toys</h3>
+              <p>Find the best toys and accessories for your pet.</p>
+              <a class="button is-primary" href="toysList.html"
+                >View products</a
+              >
+            </div>
           </div>
         </div>
       </div>
