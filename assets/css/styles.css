@@ -25,7 +25,10 @@ h6 {
   font-family: Poppins, sans-serif;
 }
 
-p {
+p,
+a,
+label,
+input {
   font-family: Raleway, sans-serif;
 }
 
@@ -217,7 +220,6 @@ a {
 /* Content */
 .content {
   font-size: 1 rem;
-  text-align: justify;
 }
 
 /* Cards */
@@ -265,4 +267,36 @@ a {
 
 .contact-card i {
   color: #f0932b;
+}
+
+/* Form */
+.form {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form input {
+  padding: 10px;
+  border: 1px solid #e4e4e4;
+  border-radius: 4px;
+  margin-bottom: 30px;
+}
+
+.form label {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.form input:focus {
+  outline: none;
+  border-color: var(--primary);
 }
