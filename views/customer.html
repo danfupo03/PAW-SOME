@@ -11,11 +11,15 @@
       src="https://kit.fontawesome.com/87b5cb0a2b.js"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Stylesheet -->
+    <link defer rel="stylesheet" href="../assets/css/styles.css" />
+    <link defer rel="stylesheet" href="../assets/css/variables.css" />
   </head>
   <body>
-    <nav>
-      <div>
-        <div>
+    <nav class="navbar">
+      <div class="navbar-start">
+        <div class="navbar-brand">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
@@ -28,37 +32,49 @@
             />
           </svg>
         </div>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-        </ul>
+        <a class="button is-primary" href="index.html"
+          ><i class="fa-solid fa-house"></i> Home</a
+        >
       </div>
       <div>
         <!-- Not logged in -->
-        <a href="login.html">
-          <i class="fa-solid fa-right-to-bracket"></i> Login
-        </a>
+        <a class="button is-secondary" href="login.html"
+          ><i class="fa-solid fa-right-to-bracket"></i> Login</a
+        >
         <!-- Logged in -->
-        <a href="customer.html"><i class="fa-solid fa-user"></i> Profile</a>
-        <a href="logout.html">
+        <a class="button is-dark" href="customer.html"
+          ><i class="fa-solid fa-user"></i
+        ></a>
+        <a class="button is-danger" href="logout.html">
           <i class="fa-solid fa-right-from-bracket"></i> Logout
         </a>
       </div>
     </nav>
 
     <section>
-      <div>
-        <h3>User Data</h3>
-        <form action="">
-          <label for="username">Username</label>
-          <input type="text" placeholder="username" value="johndoe" />
-          <br />
-          <br />
-          <label for="password">Password</label>
-          <input type="password" placeholder="password" value="password" />
-          <br />
-          <br />
-          <button type="submit">Update info</button>
-        </form>
+      <div class="container">
+        <div class="form mt-5">
+          <h3>User Account</h3>
+          <form action="">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              placeholder="username"
+              value="JohnDoe03"
+              required
+            />
+            <label for="password">Password</label>
+            <input
+              type="password"
+              placeholder="password"
+              value="password"
+              required
+            />
+            <button class="button is-secondary" type="submit">
+              Update info
+            </button>
+          </form>
+        </div>
       </div>
     </section>
   </body>

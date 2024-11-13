@@ -25,7 +25,12 @@ h6 {
   font-family: Poppins, sans-serif;
 }
 
-p {
+p,
+a,
+label,
+input,
+ul,
+figcaption {
   font-family: Raleway, sans-serif;
 }
 
@@ -58,10 +63,6 @@ a {
 
 .title.is-5 {
   font-size: 1.25rem;
-}
-
-.title.is-6 {
-  font-size: 1rem;
 }
 
 /* Paragraphs */
@@ -136,7 +137,7 @@ a {
 }
 
 .button.is-light:hover {
-  background-color: #f9f9f9;
+  background-color: #f38b61;
 }
 
 .button.is-danger {
@@ -179,7 +180,6 @@ a {
 .hero {
   display: flex;
   align-items: center;
-  min-height: 50vh;
   background-color: var(--primary);
 }
 
@@ -217,35 +217,117 @@ a {
 
 /* Content */
 .content {
-  font-size: 1.1rem;
+  font-size: 1 rem;
 }
 
-/* Products */
-.products {
-  display: grid;
-  grid-template-columns: 33% 33% 33%;
+.is-primary {
+  color: var(--primary);
+}
+
+/* Cards */
+.cards-container {
+  display: flex;
   gap: 20px;
+  justify-content: center;
 }
 
 .card {
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 4px;
+  width: 300px;
+  border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 100%;
 }
 
 .card-content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+  align-items: center;
+  padding: 20px;
 }
 
 .card-content img {
   max-width: 100%;
-  height: 50%;
+  height: 200px;
 }
 
-.card a.button {
-  margin-top: auto;
+/* Contact card */
+.contact-card {
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-card p {
+  display: flex;
+  gap: 10px;
+  margin: 0;
+}
+
+.contact-card i {
+  color: #f0932b;
+}
+
+/* Form */
+.form {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form input {
+  padding: 10px;
+  border: 1px solid #e4e4e4;
+  border-radius: 4px;
+  margin-bottom: 30px;
+}
+
+.form label {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.form input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* Product */
+.product {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.product img {
+  max-width: 100%;
+  height: 500px;
+  background-color: #f6a07e;
+  border-radius: 8px;
+}
+
+.log-out {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  text-align: center;
+  margin: 0 auto;
+  height: 700px;
+  width: 500px;
+  padding: 10px 50px 50px;
+}
+
+.log-out img {
+  width: 100%;
+  height: auto;
 }
