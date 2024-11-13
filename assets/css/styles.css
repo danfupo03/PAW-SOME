@@ -29,7 +29,8 @@ p,
 a,
 label,
 input,
-ul {
+ul,
+figcaption {
   font-family: Raleway, sans-serif;
 }
 
@@ -314,4 +315,19 @@ a {
   height: 500px;
   background-color: #f6a07e;
   border-radius: 8px;
+}
+
+.log-out {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  text-align: center;
+  margin: 0 auto;
+  height: 700px;
+  width: 500px;
+  padding: 10px 50px 50px;
+}
+
+.log-out img {
+  width: 100%;
+  height: auto;
 }
