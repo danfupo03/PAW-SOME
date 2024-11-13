@@ -71,6 +71,10 @@ a {
   line-height: 1.6;
 }
 
+.is-primary {
+  color: var(--primary);
+}
+
 /* Navbar */
 .navbar {
   display: flex;
@@ -212,16 +216,6 @@ a {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* Content */
-.content {
-  font-size: 1 rem;
-}
-
-.is-primary {
-  color: var(--primary);
 }
 
 /* Cards */
@@ -313,10 +307,11 @@ a {
 .product img {
   max-width: 100%;
   height: 500px;
-  background-color: #f6a07e;
+  background-color: var(--light);
   border-radius: 8px;
 }
 
+/* Log-out */
 .log-out {
   background-color: #f9f9f9;
   border-radius: 8px;
