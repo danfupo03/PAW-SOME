@@ -22,15 +22,29 @@
         <div class="form mt-5">
           <h1 class="title is-3">Join Paw-Some &#128054;</h1>
           <p class="content">Create an account to start exploring!</p>
-          <form action="">
+          <form action="" method="GET" id="form">
             <label for="username">Username</label>
-            <input type="text" placeholder="JohnDoe03" required/>
+            <input type="text" placeholder="JohnDoe03" required id="username" />
+            <span id="usernameError1" style="color: red; display: none"
+              >The username must contain at least 5 characters</span>
+
             <label for="password">Password</label>
-            <input type="password" placeholder="password" required/>
-            <label for="password">Confirm Password</label>
-            <input type="password" placeholder="password" required/>
-            <button class="button is-secondary" type="submit">Create account</button>
+            <input type="textx" placeholder="password" id="password" required />
+            <span id="passwordError"
+              >The password must be at least 10 characters long</span
+            >
+
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="text" required id="confirmPassword" />
+            <span id="confirmPasswordError" style="color: red; display: none"
+              >The password does not match</span
+            >
+
+            <button class="button is-secondary" type="submit">
+              Create account
+            </button>
           </form>
+
           <div class="mb-3">
             <h3>Already an account?</h3>
             <a class="button is-dark" href="login.html">Login</a>
@@ -38,5 +52,6 @@
         </div>
       </div>
     </section>
+    <script src="../assets/js/script.js"></script>
   </body>
 </html>

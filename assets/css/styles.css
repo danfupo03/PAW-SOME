@@ -30,7 +30,8 @@ a,
 label,
 input,
 ul,
-figcaption {
+figcaption,
+span {
   font-family: Raleway, sans-serif;
 }
 
@@ -290,7 +291,12 @@ a {
   padding: 10px;
   border: 1px solid #e4e4e4;
   border-radius: 4px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.form input:focus {
+  outline: none;
 }
 
 .form label {
@@ -298,9 +304,12 @@ a {
   margin-bottom: 10px;
 }
 
-.form input:focus {
-  outline: none;
-  border-color: var(--primary);
+.form span {
+  text-align: left;
+  font-size: x-small;
+  margin-bottom: 10px;
+  color: red;
+  display: none;
 }
 
 /* Product */
