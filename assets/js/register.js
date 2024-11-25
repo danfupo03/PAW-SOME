@@ -13,7 +13,9 @@ password = document.getElementById("password");
 confirmPassword = document.getElementById("confirmPassword");
 
 username.addEventListener("input", function () {
-  let isValidUsername = /^(?=.*[a-z])(?=.*[A-Z])/.test(username.value) && username.value.length >= 5;
+  let isValidUsername =
+    /^(?=.*[a-z])(?=.*[A-Z])/.test(username.value) &&
+    username.value.length >= 5;
   changeBorderColor(
     username,
     isValidUsername,
@@ -37,7 +39,7 @@ confirmPassword.addEventListener("input", function () {
   );
 });
 
-document.getElementById("form").addEventListener("submit", function (event) {
+document.getElementById("registerForm").addEventListener("submit", function (event) {
   let isValidUsername =
     username.value.length >= 5 &&
     /^(?=.*[a-z])(?=.*[A-Z])/.test(username.value);
