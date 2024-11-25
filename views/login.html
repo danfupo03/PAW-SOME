@@ -21,7 +21,9 @@
       <div class="container">
         <div class="form mt-5">
           <h1 class="title is-3">Welcome to Paw-Some &#128054;</h1>
-          <p class="content">We're glad you're here! Please log in to continue.</p>
+          <p class="content">
+            We're glad you're here! Please log in to continue.
+          </p>
           <form action="login.html" method="GET">
             <label for="username">Username</label>
             <input type="text" placeholder="username" />
@@ -37,5 +39,24 @@
         </div>
       </div>
     </section>
+    <script>
+      const password = "password123";
+      const username = "JohnDoe03";
+
+      const form = document.querySelector("form");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const passwordInput = document.querySelector('input[type="password"]');
+        const usernameInput = document.querySelector('input[type="text"]');
+        if (
+          passwordInput.value === password &&
+          usernameInput.value === username
+        ) {
+          window.location.href = "index.html";
+        } else {
+          alert("Invalid username or password");
+        }
+      });
+    </script>
   </body>
 </html>
