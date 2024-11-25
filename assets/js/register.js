@@ -49,5 +49,7 @@ document.getElementById("registerForm").addEventListener("submit", function (eve
   if (!isValidUsername || !isValidPassword || !isValidConfirmPassword) {
     event.preventDefault();
     alert("Form is not valid");
+  } else {
+    alert("Account created successfully");
   }
 });

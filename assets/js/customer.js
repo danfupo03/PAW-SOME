@@ -41,5 +41,7 @@ document
     if (!isValidUsername || !isValidPassword) {
       event.preventDefault();
       alert("Form is not valid");
+    } else {
+      alert("Profile updated successfully");
     }
   });
