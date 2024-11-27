@@ -36,7 +36,7 @@
           ><i class="fa-solid fa-house"></i> Home</a
         >
       </div>
-      <div>
+      <div class="buttons">
         <!-- Not logged in -->
         <a class="button is-secondary" href="login.html"
           ><i class="fa-solid fa-right-to-bracket"></i> Login</a
@@ -57,14 +57,26 @@
           <h3>User Account</h3>
           <form action="" method="GET" id="customerForm">
             <label for="username">Username</label>
-            <input type="text" placeholder="JohnDoe03" value="JohnDoe03" required id="username" />
+            <input
+              type="text"
+              placeholder="JohnDoe03"
+              value="JohnDoe03"
+              required
+              id="username"
+            />
             <span id="usernameError" style="color: red; display: none"
               >The username must contain at least 5 characters and at least one
               capital letter and one lower case letter</span
             >
 
             <label for="password">Password</label>
-            <input type="text" placeholder="password" value="password123" id="password" required />
+            <input
+              type="text"
+              placeholder="password"
+              value="password123"
+              id="password"
+              required
+            />
             <span id="passwordError"
               >The password must be at least 10 characters long</span
             >
