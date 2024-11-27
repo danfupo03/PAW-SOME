@@ -95,6 +95,20 @@ a {
   width: 50px;
 }
 
+@media (max-width: 425px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .navbar-start {
+    margin-bottom: 20px;
+  }
+
+  .navbar .buttons {
+    margin-bottom: 10px;
+  }
+}
+
 /* Button */
 .button {
   font-size: 1rem;
@@ -297,6 +311,13 @@ a {
   color: #f0932b;
 }
 
+@media (max-width: 768px) {
+  .contact-card {
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+}
+
 /* Form */
 .form {
   background-color: #f9f9f9;
@@ -351,6 +372,18 @@ a {
   border-radius: 8px;
 }
 
+@media screen and (max-width: 768px) {
+  .product {
+    flex-direction: column;
+  }
+
+  .product img {
+    width: auto;
+    height: auto;
+  }
+}
+
+/* Log-out */
 .log-out {
   background-color: #f9f9f9;
   border-radius: 8px;
