@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
 /* Variables*/
 :root {
   --primary: #e85c0d;
@@ -8,12 +10,14 @@
   --success: #3da35d;
   --warning: #f1c40f;
   --info: #3498db;
+  --text-color: #333;
+  --title-color: #000000;
+  --background-color: #f9f9f9;
 }
-
-@import url("https://fonts.googleapis.com/css?family=Raleway");
 
 body {
   margin: 0;
+  background-color: var(--background-color);
 }
 
 h1,
@@ -32,7 +36,8 @@ input,
 ul,
 figcaption,
 span {
-  font-family: Raleway, sans-serif;
+  font-family: Lato, sans-serif;
+  color: var(--text-color);
 }
 
 a {
@@ -40,10 +45,24 @@ a {
   text-decoration: none;
 }
 
+.dark-mode {
+  --primary: #a84207;
+  --secondary: #351d66;
+  --dark: #4d1b00;
+  --light: #d57557;
+  --danger: #7e2a22;
+  --success: #2b7a45;
+  --warning: #b38f08;
+  --info: #2674a1;
+  --text-color: #f9f9f9;
+  --title-color: #f9f9f9;
+  --background-color: #333;
+}
+
 /* Titles */
 .title {
   font-weight: 700;
-  color: black;
+  color: var(--title-color);
 }
 
 .title.is-1 {
@@ -320,7 +339,7 @@ a {
 
 /* Form */
 .form {
-  background-color: #f9f9f9;
+  background-color: var(--background-color);
   border-radius: 8px;
   padding: 10px;
   text-align: center;
@@ -339,6 +358,7 @@ a {
   border-radius: 4px;
   margin-bottom: 10px;
   transition: all 0.2s ease-in-out;
+  background-color: var(--background-color);
 }
 
 .form input:focus {
@@ -368,7 +388,7 @@ a {
 .product img {
   max-width: 100%;
   height: 500px;
-  background-color: #f6a07e;
+  background-color: var(--light);
   border-radius: 8px;
 }
 
