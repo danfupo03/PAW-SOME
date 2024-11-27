@@ -91,6 +91,10 @@ a {
   line-height: 1.6;
 }
 
+.is-primary {
+  color: var(--primary);
+}
+
 /* Navbar */
 .navbar {
   display: flex;
@@ -98,7 +102,9 @@ a {
   align-items: center;
   padding: 10px 20px;
   background-color: var(--primary);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    0 6px 20px rgba(0, 0, 0, 0.2);
   transform: translateZ(0);
 }
 
@@ -264,16 +270,6 @@ a {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* Content */
-.content {
-  font-size: 1 rem;
-}
-
-.is-primary {
-  color: var(--primary);
 }
 
 /* Cards */
@@ -389,6 +385,7 @@ a {
   max-width: 100%;
   height: 500px;
   background-color: var(--light);
+  background-color: var(--light);
   border-radius: 8px;
 }
 
@@ -417,4 +414,22 @@ a {
 .log-out img {
   width: 100%;
   height: auto;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.buttons-container input {
+  width: 50px;
+  height: 30px;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.language-selector {
+  padding: 15px;
 }
