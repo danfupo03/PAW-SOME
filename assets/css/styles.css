@@ -122,7 +122,7 @@ a {
   width: 50px;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 499px) {
   .navbar {
     flex-direction: column;
   }
@@ -250,7 +250,7 @@ a {
   width: auto;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 735px) {
   .hero {
     flex-direction: column;
   }
@@ -276,13 +276,13 @@ a {
 
 /* Cards */
 .cards-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-  justify-content: center;
 }
 
 .card {
-  width: 300px;
+  width: 100%;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   height: 100%;
@@ -300,10 +300,9 @@ a {
   height: 200px;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 768px) {
   .cards-container {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: 1fr;
   }
 }
 
@@ -391,9 +390,10 @@ a {
   border-radius: 8px;
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .product {
     flex-direction: column;
+    margin: 0 10px;
   }
 
   .product img {
@@ -416,6 +416,12 @@ a {
 .log-out img {
   width: 100%;
   height: auto;
+}
+
+@media (max-width: 768px) {
+  .log-out {
+    height: auto;
+  }
 }
 
 .buttons-container {
