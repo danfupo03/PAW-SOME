@@ -17,3 +17,18 @@ function darkMode() {
     button.classList.add("is-dark");
   }
 }
+
+const password = "password123";
+const username = "JohnDoe03";
+
+const form = document.querySelector("form");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const passwordInput = document.querySelector('input[type="password"]');
+  const usernameInput = document.querySelector('input[type="text"]');
+  if (passwordInput.value === password && usernameInput.value === username) {
+    window.location.href = "index.html";
+  } else {
+    alert("Invalid username or password");
+  }
+});
