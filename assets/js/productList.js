@@ -1,43 +1,73 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const buttons = document.querySelectorAll(".button.is-warning");
+const buttons = document.querySelectorAll(".button.is-warning");
 
-  buttons.forEach(function (button) {
-    button.addEventListener("click", function () {
-      const card = button.closest(".card");
-      const productName = card.querySelector(".title.is-5").innerText;
-      const quantityInput = card.querySelector("input[type='number']");
-      const quantity = parseInt(quantityInput.value);
+buttons.forEach(function (button) {
+  button.addEventListener("click", function () {
+    const card = button.closest(".card");
+    const productName = card.querySelector(".title.is-5").innerText;
+    const quantityInput = card.querySelector("input[type='number']");
+    const priceInput = card.querySelector("strong").innerText;
+    const price = parseFloat(priceInput.replace("Price: $", ""));
+    const quantity = parseInt(quantityInput.value);
+    const totalPrice = price * quantity;
 
-      if (isNaN(quantity) || quantity < 1) {
-        alert("Please enter a valid quantity!");
-        return;
-      }
+    if (isNaN(quantity) || quantity < 1) {
+      alert("Please enter a valid quantity!");
+      return;
+    }
 
-      alert(`Added ${quantity} of "${productName}" to the list!`);
+    alert(`Added ${quantity} of "${productName}" to the list!`);
 
-      addToProductList(card, quantity);
-    });
+    addToProductList(productName, quantity, totalPrice);
   });
-
-  function addToProductList(card, quantity) {
-    const productListContainer = document.getElementById("product-list");
-    const clonedCard = card.cloneNode(true);
-
-    clonedCard.querySelector(".button.is-warning").remove();
-    clonedCard.querySelector("input[type='number']").remove();
-
-    const quantityText = document.createElement("p");
-    quantityText.textContent = `Quantity: ${quantity}`;
-    clonedCard.querySelector(".card-content").appendChild(quantityText);
-
-    productListContainer.appendChild(clonedCard);
-  }
 });
 
+function addToProductList(productName, quantity, price) {
+  const productListContainer = document.getElementById("product-list");
+
+  const productDiv = document.createElement("div");
+  productDiv.className = "product-list";
+
+  const productNameSpan = document.createElement("span");
+  productNameSpan.className = "content";
+  productNameSpan.textContent = `${productName}: `;
+
+  const quantityInput = document.createElement("input");
+  quantityInput.setAttribute("type", "number");
+  quantityInput.setAttribute("value", quantity);
+  quantityInput.setAttribute("readonly", true);
+
+  const priceInput = document.createElement("input");
+  priceInput.setAttribute("type", "number");
+  priceInput.setAttribute("value", price);
+
+  const taxInput = document.createElement("input");
+  taxInput.setAttribute("type", "number");
+  taxInput.setAttribute("value", getTotalPrice(price));
+  taxInput.setAttribute("readonly", true);
+
+  priceInput.addEventListener("input", function () {
+    const newPrice = parseFloat(priceInput.value);
+    taxInput.value = getTotalPrice(newPrice);
+  });
+
+  productDiv.appendChild(productNameSpan);
+  productDiv.appendChild(quantityInput);
+  productDiv.appendChild(priceInput);
+  productDiv.appendChild(taxInput);
+
+  productListContainer.appendChild(productDiv);
+}
+
+function getTotalPrice(priceWOTax) {
+  const taxRate = 0.19;
+  const totalPrice = priceWOTax + priceWOTax * taxRate;
+  return parseFloat(totalPrice.toFixed(2));
+}
+
 function darkMode() {
-  let body = document.body;
-  let button = document.getElementById("dark-mode");
-  let icon = document.querySelector("#dark-mode i");
+  const body = document.body;
+  const button = document.getElementById("dark-mode");
+  const icon = document.querySelector("#dark-mode i");
 
   body.classList.toggle("dark-mode");
 
