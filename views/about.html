@@ -36,7 +36,7 @@
           ><i class="fa-solid fa-house"></i> Home</a
         >
       </div>
-      <div>
+      <div class="buttons">
         <!-- Not logged in -->
         <a class="button is-secondary" href="login.html"
           ><i class="fa-solid fa-right-to-bracket"></i> Login</a
@@ -48,11 +48,13 @@
         <a class="button is-danger" href="logout.html">
           <i class="fa-solid fa-right-from-bracket"></i> Logout
         </a>
+        <a class="button is-dark ml-1" onclick="darkMode()" id="dark-mode"
+          ><i class="fa-solid fa-moon"></i
+        ></a>
       </div>
     </nav>
 
-    <div class="language-selector">
-      <label for="language">Select Language: </label>
+    <div class="language-selector mt-3">
       <select id="language">
         <option value="en">English</option>
         <option value="de">Deutsch</option>
@@ -96,6 +98,6 @@
         </div>
       </div>
     </section>
+    <script src="../assets/js/about.js"></script>
   </body>
-  <script src="../assets/js/language.js"></script>
 </html>

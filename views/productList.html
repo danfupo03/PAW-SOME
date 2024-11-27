@@ -36,7 +36,7 @@
           ><i class="fa-solid fa-house"></i> Home</a
         >
       </div>
-      <div>
+      <div class="buttons">
         <!-- Not logged in -->
         <a class="button is-secondary" href="login.html"
           ><i class="fa-solid fa-right-to-bracket"></i> Login</a
@@ -48,6 +48,9 @@
         <a class="button is-danger" href="logout.html">
           <i class="fa-solid fa-right-from-bracket"></i> Logout
         </a>
+        <a class="button is-dark ml-1" onclick="darkMode()" id="dark-mode"
+          ><i class="fa-solid fa-moon"></i
+        ></a>
       </div>
     </nav>
     <section>
@@ -66,7 +69,7 @@
                 <strong>Price: $7.99</strong>
               </p>
               <div class="buttons-container">
-                <a class="button is-info" href="kongBear.html">View Details</a>
+                <a class="button is-info" href="product.html">View Details</a>
                 <input type="number" min="1" value="1" />
                 <button class="button is-warning">Add to list</button>
               </div>
@@ -209,6 +212,6 @@
         <div class="cards-container mb-5" id="product-list"></div>
       </div>
     </section>
+    <script src="../assets/js/productList.js"></script>
   </body>
-  <script src="../assets/js/products.js"></script>
 </html>

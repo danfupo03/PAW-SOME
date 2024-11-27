@@ -36,7 +36,7 @@
           ><i class="fa-solid fa-house"></i> Home</a
         >
       </div>
-      <div>
+      <div class="buttons">
         <!-- Not logged in -->
         <a class="button is-secondary" href="login.html"
           ><i class="fa-solid fa-right-to-bracket"></i> Login</a
@@ -48,13 +48,16 @@
         <a class="button is-danger" href="logout.html">
           <i class="fa-solid fa-right-from-bracket"></i> Logout
         </a>
+        <a class="button is-dark ml-1" onclick="darkMode()" id="dark-mode"
+          ><i class="fa-solid fa-moon"></i
+        ></a>
       </div>
     </nav>
     <section>
       <div class="container mt-5">
         <div class="product">
           <img src="/assets/images/kongBear.png" alt="Kong Bear" />
-          <div class="ml-5">
+          <div class="container">
             <h2 class="title is-2">Kong Bear</h2>
             <h1 class="title is-4 is-primary">$7.99</h1>
             <p class="content">
@@ -74,6 +77,9 @@
                 <i class="fa-solid fa-cart-shopping"></i>
                 Add to Cart
               </button>
+              <a class="button is-danger" href="toysList.html"
+                ><i class="fa-solid fa-arrow-left"></i> Go Back</a
+              >
             </div>
             <div class="mt-5">
               <button id="changeColorButton" class="button is-info">
@@ -82,11 +88,8 @@
             </div>
           </div>
         </div>
-        <a class="button is-danger" href="toysList.html"
-          ><i class="fa-solid fa-arrow-left"></i> Go Back</a
-        >
       </div>
     </section>
+    <script src="../assets/js/product.js"></script>
   </body>
-  <script src="../assets/js/kongcolors.js"></script>
 </html>
