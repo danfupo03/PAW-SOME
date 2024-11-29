@@ -26,7 +26,7 @@ include 'includes/head.php';
               <strong>Price: $7.99</strong>
             </p>
             <div class="buttons-container">
-              <a class="button is-info" href="product.html">View Details</a>
+              <a class="button is-info" href="<?= BASE_URL ?>product">View Details</a>
               <input type="number" min="1" value="1" />
               <button class="button is-warning">Add to list</button>
             </div>

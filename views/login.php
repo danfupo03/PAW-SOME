@@ -16,7 +16,7 @@ include 'includes/head.php';
         <p class="content">
           We're glad you're here! Please log in to continue.
         </p>
-        <form action="login.html" method="GET">
+        <form action="" method="GET">
           <label for="username">Username</label>
           <input type="text" placeholder="username" />
           <label for="password">Password</label>
@@ -25,8 +25,8 @@ include 'includes/head.php';
         </form>
         <div class="mb-3">
           <h1 class="title is-5">Not an account yet?</h1>
-          <a class="button is-info" href="register.html">Register</a>
-          <a class="button is-danger" href="index.html">Back to Home</a>
+          <a class="button is-info" href="<?= BASE_URL ?>register">Register</a>
+          <a class="button is-danger" href="<?= BASE_URL ?>">Back to Home</a>
         </div>
       </div>
     </div>

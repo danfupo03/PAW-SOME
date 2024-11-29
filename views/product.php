@@ -37,7 +37,7 @@ include 'includes/head.php';
               <i class="fa-solid fa-cart-shopping"></i>
               Add to Cart
             </a>
-            <a class="button is-danger" href="productList.html"><i class="fa-solid fa-arrow-left"></i> Go Back</a>
+            <button class="button is-danger" onclick="window.history.back();"><i class="fa-solid fa-arrow-left"></i> Go Back</button>
           </div>
         </div>
       </div>
