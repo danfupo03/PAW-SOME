@@ -1,4 +1,5 @@
 <?php
+define('BASE_URL', '/PAW-SOME/');
 
 $routes = [
     '/' => 'views/home.php',
@@ -6,9 +7,9 @@ $routes = [
     '/customer' => 'views/customer.php',
     '/login' => 'views/login.php',
     '/register' => 'views/register.php',
-    'logout' => 'views/logout.php',
-    'prduct' => 'views/product.php',
-    'productList' => 'views/productList.php'
+    '/logout' => 'views/logout.php',
+    '/product' => 'views/product.php',
+    '/productList' => 'views/productList.php'
 ];
 
 function runRoute($route)
@@ -19,6 +20,6 @@ function runRoute($route)
         require $routes[$route];
     } else {
         http_response_code(404);
-        echo "Page not found";
+        echo '404 Not Found';
     }
 }
