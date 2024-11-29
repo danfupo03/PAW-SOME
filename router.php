@@ -11,7 +11,8 @@ $routes = [
     'productList' => 'views/productList.php'
 ];
 
-function runRoute($route) {
+function runRoute($route)
+{
     global $routes;
 
     if (array_key_exists($route, $routes)) {

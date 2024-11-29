@@ -4,4 +4,3 @@ require_once 'router.php';
 
 $route = $_GET['route'] ?? '/';
 runRoute($route);
-?>

@@ -1,217 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Paw-Some &#128054;</title>
-    <link rel="icon" href="/assets/images/favicon.ico" />
 
-    <!-- Font Awesome -->
-    <script
-      src="https://kit.fontawesome.com/87b5cb0a2b.js"
-      crossorigin="anonymous"
-    ></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paw-Some &#128054;</title>
+  <link rel="icon" href="/assets/images/favicon.ico" />
 
-    <!-- Stylesheet -->
-    <link defer rel="stylesheet" href="../assets/css/styles.css" />
-    <link defer rel="stylesheet" href="../assets/css/variables.css" />
-  </head>
-  <body>
-    <nav class="navbar">
-      <div class="navbar-start">
-        <div class="navbar-brand">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 512 512"
-            width="100"
-          >
-            <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-            <path
-              fill="#000000"
-              d="M226.5 92.9c14.3 42.9-.3 86.2-32.6 96.8s-70.1-15.6-84.4-58.5s.3-86.2 32.6-96.8s70.1 15.6 84.4 58.5zM100.4 198.6c18.9 32.4 14.3 70.1-10.2 84.1s-59.7-.9-78.5-33.3S-2.7 179.3 21.8 165.3s59.7 .9 78.5 33.3zM69.2 401.2C121.6 259.9 214.7 224 256 224s134.4 35.9 186.8 177.2c3.6 9.7 5.2 20.1 5.2 30.5l0 1.6c0 25.8-20.9 46.7-46.7 46.7c-11.5 0-22.9-1.4-34-4.2l-88-22c-15.3-3.8-31.3-3.8-46.6 0l-88 22c-11.1 2.8-22.5 4.2-34 4.2C84.9 480 64 459.1 64 433.3l0-1.6c0-10.4 1.6-20.8 5.2-30.5zM421.8 282.7c-24.5-14-29.1-51.7-10.2-84.1s54-47.3 78.5-33.3s29.1 51.7 10.2 84.1s-54 47.3-78.5 33.3zM310.1 189.7c-32.3-10.6-46.9-53.9-32.6-96.8s52.1-69.1 84.4-58.5s46.9 53.9 32.6 96.8s-52.1 69.1-84.4 58.5z"
-            />
-          </svg>
-        </div>
-        <a class="button is-primary" href="index.html"
-          ><i class="fa-solid fa-house"></i> Home</a
-        >
+  <!-- Font Awesome -->
+  <script
+    src="https://kit.fontawesome.com/87b5cb0a2b.js"
+    crossorigin="anonymous"></script>
+
+  <!-- Stylesheet -->
+  <link defer rel="stylesheet" href="../assets/css/styles.css" />
+  <link defer rel="stylesheet" href="../assets/css/variables.css" />
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="navbar-start">
+      <div class="navbar-brand">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+          width="100">
+          <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+          <path
+            fill="#000000"
+            d="M226.5 92.9c14.3 42.9-.3 86.2-32.6 96.8s-70.1-15.6-84.4-58.5s.3-86.2 32.6-96.8s70.1 15.6 84.4 58.5zM100.4 198.6c18.9 32.4 14.3 70.1-10.2 84.1s-59.7-.9-78.5-33.3S-2.7 179.3 21.8 165.3s59.7 .9 78.5 33.3zM69.2 401.2C121.6 259.9 214.7 224 256 224s134.4 35.9 186.8 177.2c3.6 9.7 5.2 20.1 5.2 30.5l0 1.6c0 25.8-20.9 46.7-46.7 46.7c-11.5 0-22.9-1.4-34-4.2l-88-22c-15.3-3.8-31.3-3.8-46.6 0l-88 22c-11.1 2.8-22.5 4.2-34 4.2C84.9 480 64 459.1 64 433.3l0-1.6c0-10.4 1.6-20.8 5.2-30.5zM421.8 282.7c-24.5-14-29.1-51.7-10.2-84.1s54-47.3 78.5-33.3s29.1 51.7 10.2 84.1s-54 47.3-78.5 33.3zM310.1 189.7c-32.3-10.6-46.9-53.9-32.6-96.8s52.1-69.1 84.4-58.5s46.9 53.9 32.6 96.8s-52.1 69.1-84.4 58.5z" />
+        </svg>
       </div>
-      <div class="buttons">
-        <!-- Not logged in -->
-        <a class="button is-secondary" href="login.html"
-          ><i class="fa-solid fa-right-to-bracket"></i> Login</a
-        >
-        <!-- Logged in -->
-        <a class="button is-dark" href="customer.html"
-          ><i class="fa-solid fa-user"></i
-        ></a>
-        <a class="button is-danger" href="logout.html">
-          <i class="fa-solid fa-right-from-bracket"></i> Logout
-        </a>
-        <a class="button is-dark ml-1" onclick="darkMode()" id="dark-mode"
-          ><i class="fa-solid fa-moon"></i
-        ></a>
-      </div>
-    </nav>
-    <section>
-      <div class="container mb-5">
-        <h2 class="title is-2">Toy List</h2>
-        <h3 class="title is-3">Stuffed Animals</h3>
-        <div class="cards-container">
-          <div class="card">
-            <div class="card-content">
-              <img src="/assets/images/kongBear.png" alt="KONG Plush Bear" />
-              <h1 class="title is-5">KONG Plush Teddy Bear Dog Toy</h1>
-              <p>
-                Soft, durable, and bear toy with a replaceable squeaker for
-                endless fun. <br />
-                <br />
-                <strong>Price: $7.99</strong>
-              </p>
-              <div class="buttons-container">
-                <a class="button is-info" href="product.html">View Details</a>
-                <input type="number" min="1" value="1" />
-                <button class="button is-warning">Add to list</button>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-content">
-              <img
-                src="/assets/images/friscoSquirrel.png"
-                alt="Frisco Squirrel"
-              />
-              <h1 class="title is-5">
-                Frisco Plush Squeaking Squirrel Dog Toy
-              </h1>
-              <p>
-                Ultra-soft plush with squeakers to keep your dog engaged during
-                playtime. <br />
-                <br />
-                <strong>Price: $6.99</strong>
-              </p>
-              <div class="buttons-container">
-                <a class="button is-info" href="#">View Details</a>
-                <input type="number" min="1" value="1" />
-                <button class="button is-warning">Add to list</button>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-content">
-              <img src="/assets/images/gato.png" alt="Cat Plush" />
-              <h1 class="title is-5">Mr Mittens The Cat Plush Cat Toy</h1>
-              <p>
-                Super soft, with cute details for your cat to have a cuddly
-                friend to play with. <br />
-                <br />
-                <strong>Price: $9.99</strong>
-              </p>
-              <div class="buttons-container">
-                <a class="button is-info" href="#">View Details</a>
-                <input type="number" min="1" value="1" />
-                <button class="button is-warning">Add to list</button>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-content">
-              <img src="/assets/images/perrybg.png" alt="PlatypusPlush" />
-              <h1 class="title is-5">Terry The PLatypus Dog Toy</h1>
-              <p>
-                Australian Semi-aquatic mammalian agent Doobie, doobie, Doo-bah!
-                it's Terry the platypus! <br />
-                <br />
-                <strong>Price: $8.99</strong>
-              </p>
-              <div class="buttons-container">
-                <a class="button is-info" href="#">View Details</a>
-                <input type="number" min="1" value="1" />
-                <button class="button is-warning">Add to list</button>
-              </div>
+      <a class="button is-primary" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+    </div>
+    <div class="buttons">
+      <!-- Not logged in -->
+      <a class="button is-secondary" href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+      <!-- Logged in -->
+      <a class="button is-dark" href="customer.html"><i class="fa-solid fa-user"></i></a>
+      <a class="button is-danger" href="logout.html">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+      </a>
+      <a class="button is-dark ml-1" onclick="darkMode()" id="dark-mode"><i class="fa-solid fa-moon"></i></a>
+    </div>
+  </nav>
+  <section>
+    <div class="container mb-5">
+      <h2 class="title is-2">Toy List</h2>
+      <h3 class="title is-3">Stuffed Animals</h3>
+      <div class="cards-container">
+        <div class="card">
+          <div class="card-content">
+            <img src="/assets/images/kongBear.png" alt="KONG Plush Bear" />
+            <h1 class="title is-5">KONG Plush Teddy Bear Dog Toy</h1>
+            <p>
+              Soft, durable, and bear toy with a replaceable squeaker for
+              endless fun. <br />
+              <br />
+              <strong>Price: $7.99</strong>
+            </p>
+            <div class="buttons-container">
+              <a class="button is-info" href="product.html">View Details</a>
+              <input type="number" min="1" value="1" />
+              <button class="button is-warning">Add to list</button>
             </div>
           </div>
         </div>
-
-        <h3 class="title is-3">Chewables</h3>
-        <div class="cards-container">
-          <div class="card">
-            <div class="card-content">
-              <img src="/assets/images/benebone.png" alt="Benebone Chew" />
-              <h1 class="title is-5">Benebone Wishbone Durable Dog Chew Toy</h1>
-              <p>
-                Real bacon flavor with an ergonomic design for hours of
-                enjoyable chewing. <br />
-                <br />
-                <strong class="mt-5">Price: $12.99</strong>
-              </p>
-              <div class="buttons-container">
-                <a class="button is-info" href="#">View Details</a>
-                <input type="number" min="1" value="1" />
-                <button class="button is-warning">Add to list</button>
-              </div>
+        <div class="card">
+          <div class="card-content">
+            <img
+              src="/assets/images/friscoSquirrel.png"
+              alt="Frisco Squirrel" />
+            <h1 class="title is-5">
+              Frisco Plush Squeaking Squirrel Dog Toy
+            </h1>
+            <p>
+              Ultra-soft plush with squeakers to keep your dog engaged during
+              playtime. <br />
+              <br />
+              <strong>Price: $6.99</strong>
+            </p>
+            <div class="buttons-container">
+              <a class="button is-info" href="#">View Details</a>
+              <input type="number" min="1" value="1" />
+              <button class="button is-warning">Add to list</button>
             </div>
           </div>
-          <div class="card">
-            <div class="card-content">
-              <img src="/assets/images/nylabone.png" alt="Nylabone Chew" />
-              <h1 class="title is-5">Nylabone Power Chew Dog Toy</h1>
-              <p>
-                Designed for aggressive chewers, flavored with chicken and made
-                for long-lasting play. <br />
-                <br />
-                <strong>Price: $9.99</strong>
-              </p>
-              <div class="buttons-container">
-                <a class="button is-info" href="#">View Details</a>
-                <input type="number" min="1" value="1" />
-                <button class="button is-warning">Add to list</button>
-              </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <img src="/assets/images/gato.png" alt="Cat Plush" />
+            <h1 class="title is-5">Mr Mittens The Cat Plush Cat Toy</h1>
+            <p>
+              Super soft, with cute details for your cat to have a cuddly
+              friend to play with. <br />
+              <br />
+              <strong>Price: $9.99</strong>
+            </p>
+            <div class="buttons-container">
+              <a class="button is-info" href="#">View Details</a>
+              <input type="number" min="1" value="1" />
+              <button class="button is-warning">Add to list</button>
             </div>
           </div>
-          <div class="card">
-            <div class="card-content">
-              <img src="/assets/images/pie.png" alt="Pie Chew" />
-              <h1 class="title is-5">Little Piece of Pie Chew Dog Toy</h1>
-              <p>
-                To calm your dog's hunger, designed with a squeaker inside for
-                hours of fun.<br />
-                <br />
-                <strong>Price: $6.99</strong>
-              </p>
-              <div class="buttons-container">
-                <a class="button is-info" href="#">View Details</a>
-                <input type="number" min="1" value="1" />
-                <button class="button is-warning">Add to list</button>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-content">
-              <img src="/assets/images/sqtoy.png" alt="Squeaky toy Chew" />
-              <h1 class="title is-5">Rolling Squeaky Chew Dog Toy</h1>
-              <p>
-                Excellent for heavy duty use for the toughest chewers. Can be
-                rolled for more fun!<br />
-                <br />
-                <strong>Price: $10.99</strong>
-              </p>
-              <div class="buttons-container">
-                <a class="button is-info" href="#">View Details</a>
-                <input type="number" min="1" value="1" />
-                <button class="button is-warning">Add to list</button>
-              </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <img src="/assets/images/perrybg.png" alt="PlatypusPlush" />
+            <h1 class="title is-5">Terry The PLatypus Dog Toy</h1>
+            <p>
+              Australian Semi-aquatic mammalian agent Doobie, doobie, Doo-bah!
+              it's Terry the platypus! <br />
+              <br />
+              <strong>Price: $8.99</strong>
+            </p>
+            <div class="buttons-container">
+              <a class="button is-info" href="#">View Details</a>
+              <input type="number" min="1" value="1" />
+              <button class="button is-warning">Add to list</button>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    <section>
-      <div class="container">
-        <h1 class="title is-3">Product List</h1>
-        <div class="mb-5" id="product-list"></div>
+
+      <h3 class="title is-3">Chewables</h3>
+      <div class="cards-container">
+        <div class="card">
+          <div class="card-content">
+            <img src="/assets/images/benebone.png" alt="Benebone Chew" />
+            <h1 class="title is-5">Benebone Wishbone Durable Dog Chew Toy</h1>
+            <p>
+              Real bacon flavor with an ergonomic design for hours of
+              enjoyable chewing. <br />
+              <br />
+              <strong class="mt-5">Price: $12.99</strong>
+            </p>
+            <div class="buttons-container">
+              <a class="button is-info" href="#">View Details</a>
+              <input type="number" min="1" value="1" />
+              <button class="button is-warning">Add to list</button>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <img src="/assets/images/nylabone.png" alt="Nylabone Chew" />
+            <h1 class="title is-5">Nylabone Power Chew Dog Toy</h1>
+            <p>
+              Designed for aggressive chewers, flavored with chicken and made
+              for long-lasting play. <br />
+              <br />
+              <strong>Price: $9.99</strong>
+            </p>
+            <div class="buttons-container">
+              <a class="button is-info" href="#">View Details</a>
+              <input type="number" min="1" value="1" />
+              <button class="button is-warning">Add to list</button>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <img src="/assets/images/pie.png" alt="Pie Chew" />
+            <h1 class="title is-5">Little Piece of Pie Chew Dog Toy</h1>
+            <p>
+              To calm your dog's hunger, designed with a squeaker inside for
+              hours of fun.<br />
+              <br />
+              <strong>Price: $6.99</strong>
+            </p>
+            <div class="buttons-container">
+              <a class="button is-info" href="#">View Details</a>
+              <input type="number" min="1" value="1" />
+              <button class="button is-warning">Add to list</button>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <img src="/assets/images/sqtoy.png" alt="Squeaky toy Chew" />
+            <h1 class="title is-5">Rolling Squeaky Chew Dog Toy</h1>
+            <p>
+              Excellent for heavy duty use for the toughest chewers. Can be
+              rolled for more fun!<br />
+              <br />
+              <strong>Price: $10.99</strong>
+            </p>
+            <div class="buttons-container">
+              <a class="button is-info" href="#">View Details</a>
+              <input type="number" min="1" value="1" />
+              <button class="button is-warning">Add to list</button>
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
-    <script src="../assets/js/productList.js"></script>
-  </body>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <h1 class="title is-3">Product List</h1>
+      <div class="mb-5" id="product-list"></div>
+    </div>
+  </section>
+  <script src="../assets/js/productList.js"></script>
+</body>
+
 </html>

@@ -1,117 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Paw-Some &#128054;</title>
-    <link rel="icon" href="/assets/images/favicon.ico" />
-    <base href="/PAW-SOME/">
 
-    <!-- Font Awesome -->
-    <script
-      src="https://kit.fontawesome.com/87b5cb0a2b.js"
-      crossorigin="anonymous"
-    ></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paw-Some &#128054;</title>
+  <link rel="icon" href="/assets/images/favicon.ico" />
+  <base href="/PAW-SOME/">
 
-    <!-- Stylesheet -->
-    <link defer rel="stylesheet" href="assets/css/styles.css" />
-    <link defer rel="stylesheet" href="assets/css/variables.css" />
-  </head>
-  <body>
-    <nav class="navbar">
-      <div class="navbar-start">
-        <div class="navbar-brand">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 512 512"
-            width="100"
-          >
-            <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-            <path
-              fill="#000000"
-              d="M226.5 92.9c14.3 42.9-.3 86.2-32.6 96.8s-70.1-15.6-84.4-58.5s.3-86.2 32.6-96.8s70.1 15.6 84.4 58.5zM100.4 198.6c18.9 32.4 14.3 70.1-10.2 84.1s-59.7-.9-78.5-33.3S-2.7 179.3 21.8 165.3s59.7 .9 78.5 33.3zM69.2 401.2C121.6 259.9 214.7 224 256 224s134.4 35.9 186.8 177.2c3.6 9.7 5.2 20.1 5.2 30.5l0 1.6c0 25.8-20.9 46.7-46.7 46.7c-11.5 0-22.9-1.4-34-4.2l-88-22c-15.3-3.8-31.3-3.8-46.6 0l-88 22c-11.1 2.8-22.5 4.2-34 4.2C84.9 480 64 459.1 64 433.3l0-1.6c0-10.4 1.6-20.8 5.2-30.5zM421.8 282.7c-24.5-14-29.1-51.7-10.2-84.1s54-47.3 78.5-33.3s29.1 51.7 10.2 84.1s-54 47.3-78.5 33.3zM310.1 189.7c-32.3-10.6-46.9-53.9-32.6-96.8s52.1-69.1 84.4-58.5s46.9 53.9 32.6 96.8s-52.1 69.1-84.4 58.5z"
-            />
-          </svg>
+  <!-- Font Awesome -->
+  <script
+    src="https://kit.fontawesome.com/87b5cb0a2b.js"
+    crossorigin="anonymous"></script>
+
+  <!-- Stylesheet -->
+  <link defer rel="stylesheet" href="assets/css/styles.css" />
+  <link defer rel="stylesheet" href="assets/css/variables.css" />
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="navbar-start">
+      <div class="navbar-brand">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+          width="100">
+          <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+          <path
+            fill="#000000"
+            d="M226.5 92.9c14.3 42.9-.3 86.2-32.6 96.8s-70.1-15.6-84.4-58.5s.3-86.2 32.6-96.8s70.1 15.6 84.4 58.5zM100.4 198.6c18.9 32.4 14.3 70.1-10.2 84.1s-59.7-.9-78.5-33.3S-2.7 179.3 21.8 165.3s59.7 .9 78.5 33.3zM69.2 401.2C121.6 259.9 214.7 224 256 224s134.4 35.9 186.8 177.2c3.6 9.7 5.2 20.1 5.2 30.5l0 1.6c0 25.8-20.9 46.7-46.7 46.7c-11.5 0-22.9-1.4-34-4.2l-88-22c-15.3-3.8-31.3-3.8-46.6 0l-88 22c-11.1 2.8-22.5 4.2-34 4.2C84.9 480 64 459.1 64 433.3l0-1.6c0-10.4 1.6-20.8 5.2-30.5zM421.8 282.7c-24.5-14-29.1-51.7-10.2-84.1s54-47.3 78.5-33.3s29.1 51.7 10.2 84.1s-54 47.3-78.5 33.3zM310.1 189.7c-32.3-10.6-46.9-53.9-32.6-96.8s52.1-69.1 84.4-58.5s46.9 53.9 32.6 96.8s-52.1 69.1-84.4 58.5z" />
+        </svg>
+      </div>
+      <a class="button is-primary" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+    </div>
+    <div class="buttons">
+      <!-- Not logged in -->
+      <a class="button is-secondary" href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+      <!-- Logged in -->
+      <a class="button is-dark" href="customer.html"><i class="fa-solid fa-user"></i></a>
+      <a class="button is-danger" href="logout.html">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+      </a>
+      <a class="button is-dark ml-1" onclick="darkMode()" id="dark-mode"><i class="fa-solid fa-moon"></i></a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-text ml-5">
+      <h1 class="title is-2">Welcome to Paw-some</h1>
+      <p>Everything you are looking for your best friend in one place.</p>
+      <a class="button is-light" href="about.html">About us</a>
+    </div>
+    <div class="hero-image">
+      <img src="/assets/images/dog.png" alt="Dog cartoon" />
+    </div>
+  </section>
+
+  <section>
+    <div class="container mb-5">
+      <h2 class="title is-2">General Information</h2>
+      <p class="content">
+        In Paw-some we care about your furry friends. We offer a wide range of
+        products and services to meet your needs. Whether you're looking for
+        food, toys or any hygiene products, we have got you covered.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container mb-5">
+      <h2 class="title is-2">Our Services</h2>
+      <div class="cards-container">
+        <div class="card">
+          <div class="card-content">
+            <img src="/assets/images/dogFood.png" alt="Dog Food" />
+            <h3 class="title is-4">Food</h3>
+            <p>Find the best food for your pet.</p>
+            <a class="button is-primary" href="#">View products</a>
+          </div>
         </div>
-        <a class="button is-primary" href="index.html"
-          ><i class="fa-solid fa-house"></i> Home</a
-        >
-      </div>
-      <div class="buttons">
-        <!-- Not logged in -->
-        <a class="button is-secondary" href="login.html"
-          ><i class="fa-solid fa-right-to-bracket"></i> Login</a
-        >
-        <!-- Logged in -->
-        <a class="button is-dark" href="customer.html"
-          ><i class="fa-solid fa-user"></i
-        ></a>
-        <a class="button is-danger" href="logout.html">
-          <i class="fa-solid fa-right-from-bracket"></i> Logout
-        </a>
-        <a class="button is-dark ml-1" onclick="darkMode()" id="dark-mode"
-          ><i class="fa-solid fa-moon"></i
-        ></a>
-      </div>
-    </nav>
-
-    <section class="hero">
-      <div class="hero-text ml-5">
-        <h1 class="title is-2">Welcome to Paw-some</h1>
-        <p>Everything you are looking for your best friend in one place.</p>
-        <a class="button is-light" href="about.html">About us</a>
-      </div>
-      <div class="hero-image">
-        <img src="/assets/images/dog.png" alt="Dog cartoon" />
-      </div>
-    </section>
-
-    <section>
-      <div class="container mb-5">
-        <h2 class="title is-2">General Information</h2>
-        <p class="content">
-          In Paw-some we care about your furry friends. We offer a wide range of
-          products and services to meet your needs. Whether you're looking for
-          food, toys or any hygiene products, we have got you covered.
-        </p>
-      </div>
-    </section>
-
-    <section>
-      <div class="container mb-5">
-        <h2 class="title is-2">Our Services</h2>
-        <div class="cards-container">
-          <div class="card">
-            <div class="card-content">
-              <img src="/assets/images/dogFood.png" alt="Dog Food" />
-              <h3 class="title is-4">Food</h3>
-              <p>Find the best food for your pet.</p>
-              <a class="button is-primary" href="#">View products</a>
-            </div>
+        <div class="card">
+          <div class="card-content">
+            <img src="/assets/images/dogHygiene.png" alt="Dog Hygiene" />
+            <h3 class="title is-4">Hygiene</h3>
+            <p>Keep your pet clean and healthy.</p>
+            <a class="button is-primary" href="hygieneList.html">View products</a>
           </div>
-          <div class="card">
-            <div class="card-content">
-              <img src="/assets/images/dogHygiene.png" alt="Dog Hygiene" />
-              <h3 class="title is-4">Hygiene</h3>
-              <p>Keep your pet clean and healthy.</p>
-              <a class="button is-primary" href="hygieneList.html"
-                >View products</a
-              >
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-content">
-              <img src="/assets/images/dogToys.png" alt="Dog" />
-              <h3 class="title is-4">Toys</h3>
-              <p>Toys and accessories for your pet.</p>
-              <a class="button is-primary" href="productList.html"
-                >View products</a
-              >
-            </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <img src="/assets/images/dogToys.png" alt="Dog" />
+            <h3 class="title is-4">Toys</h3>
+            <p>Toys and accessories for your pet.</p>
+            <a class="button is-primary" href="productList.html">View products</a>
           </div>
         </div>
       </div>
-    </section>
-    <script src="../assets/js/index.js"></script>
-  </body>
+    </div>
+  </section>
+  <script src="../assets/js/index.js"></script>
+</body>
+
 </html>
