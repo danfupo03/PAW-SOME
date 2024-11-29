@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Paw-Some &#128054;</title>
     <link rel="icon" href="/assets/images/favicon.ico" />
+    <base href="/PAW-SOME/">
 
     <!-- Font Awesome -->
     <script
@@ -13,8 +14,8 @@
     ></script>
 
     <!-- Stylesheet -->
-    <link defer rel="stylesheet" href="../assets/css/styles.css" />
-    <link defer rel="stylesheet" href="../assets/css/variables.css" />
+    <link defer rel="stylesheet" href="assets/css/styles.css" />
+    <link defer rel="stylesheet" href="assets/css/variables.css" />
   </head>
   <body>
     <nav class="navbar">
