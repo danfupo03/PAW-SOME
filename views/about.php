@@ -39,7 +39,7 @@ include 'includes/head.php';
 
       <h2 class="title is-3">Contact Us</h2>
       <div class="contact-card">
-        <img src="/assets/images/about.png" alt="cartoon dog" />
+        <img src="assets/images/about.png" alt="cartoon dog" />
         <div>
           <p>
             <i class="fa-solid fa-envelope"></i>
@@ -54,7 +54,7 @@ include 'includes/head.php';
       </div>
     </div>
   </section>
-  <script src="../assets/js/about.js"></script>
+  <script src="assets/js/about.js"></script>
 </body>
 
 </html>

@@ -41,7 +41,7 @@ include 'includes/head.php';
       </div>
     </div>
   </section>
-  <script src="../assets/js/customer.js"></script>
+  <script src="assets/js/customer.js"></script>
 </body>
 
 </html>

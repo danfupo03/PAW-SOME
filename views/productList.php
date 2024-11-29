@@ -17,7 +17,7 @@ include 'includes/head.php';
       <div class="cards-container">
         <div class="card">
           <div class="card-content">
-            <img src="/assets/images/kongBear.png" alt="KONG Plush Bear" />
+            <img src="assets/images/kongBear.png" alt="KONG Plush Bear" />
             <h1 class="title is-5">KONG Plush Teddy Bear Dog Toy</h1>
             <p>
               Soft, durable, and bear toy with a replaceable squeaker for
@@ -35,7 +35,7 @@ include 'includes/head.php';
         <div class="card">
           <div class="card-content">
             <img
-              src="/assets/images/friscoSquirrel.png"
+              src="assets/images/friscoSquirrel.png"
               alt="Frisco Squirrel" />
             <h1 class="title is-5">
               Frisco Plush Squeaking Squirrel Dog Toy
@@ -55,7 +55,7 @@ include 'includes/head.php';
         </div>
         <div class="card">
           <div class="card-content">
-            <img src="/assets/images/gato.png" alt="Cat Plush" />
+            <img src="assets/images/gato.png" alt="Cat Plush" />
             <h1 class="title is-5">Mr Mittens The Cat Plush Cat Toy</h1>
             <p>
               Super soft, with cute details for your cat to have a cuddly
@@ -72,7 +72,7 @@ include 'includes/head.php';
         </div>
         <div class="card">
           <div class="card-content">
-            <img src="/assets/images/perrybg.png" alt="PlatypusPlush" />
+            <img src="assets/images/perrybg.png" alt="PlatypusPlush" />
             <h1 class="title is-5">Terry The PLatypus Dog Toy</h1>
             <p>
               Australian Semi-aquatic mammalian agent Doobie, doobie, Doo-bah!
@@ -93,7 +93,7 @@ include 'includes/head.php';
       <div class="cards-container">
         <div class="card">
           <div class="card-content">
-            <img src="/assets/images/benebone.png" alt="Benebone Chew" />
+            <img src="assets/images/benebone.png" alt="Benebone Chew" />
             <h1 class="title is-5">Benebone Wishbone Durable Dog Chew Toy</h1>
             <p>
               Real bacon flavor with an ergonomic design for hours of
@@ -110,7 +110,7 @@ include 'includes/head.php';
         </div>
         <div class="card">
           <div class="card-content">
-            <img src="/assets/images/nylabone.png" alt="Nylabone Chew" />
+            <img src="assets/images/nylabone.png" alt="Nylabone Chew" />
             <h1 class="title is-5">Nylabone Power Chew Dog Toy</h1>
             <p>
               Designed for aggressive chewers, flavored with chicken and made
@@ -127,7 +127,7 @@ include 'includes/head.php';
         </div>
         <div class="card">
           <div class="card-content">
-            <img src="/assets/images/pie.png" alt="Pie Chew" />
+            <img src="assets/images/pie.png" alt="Pie Chew" />
             <h1 class="title is-5">Little Piece of Pie Chew Dog Toy</h1>
             <p>
               To calm your dog's hunger, designed with a squeaker inside for
@@ -144,7 +144,7 @@ include 'includes/head.php';
         </div>
         <div class="card">
           <div class="card-content">
-            <img src="/assets/images/sqtoy.png" alt="Squeaky toy Chew" />
+            <img src="assets/images/sqtoy.png" alt="Squeaky toy Chew" />
             <h1 class="title is-5">Rolling Squeaky Chew Dog Toy</h1>
             <p>
               Excellent for heavy duty use for the toughest chewers. Can be
@@ -168,7 +168,7 @@ include 'includes/head.php';
       <div class="mb-5" id="product-list"></div>
     </div>
   </section>
-  <script src="../assets/js/productList.js"></script>
+  <script src="assets/js/productList.js"></script>
 </body>
 
 </html>

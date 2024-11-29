@@ -19,7 +19,7 @@ include 'includes/head.php';
         </p>
 
         <figure>
-          <img src="/assets/images/dogLoggedOut.png" alt="Logged Out" />
+          <img src="assets/images/dogLoggedOut.png" alt="Logged Out" />
           <figcaption>We hope to see you again soon!</figcaption>
         </figure>
         <div class="mt-5 mb-5">
@@ -29,7 +29,7 @@ include 'includes/head.php';
       </div>
     </div>
   </section>
-  <script src="../assets/js/logout.js"></script>
+  <script src="assets/js/logout.js"></script>
 </body>
 
 </html>

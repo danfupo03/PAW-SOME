@@ -13,7 +13,7 @@ include 'includes/head.php';
   <section>
     <div class="container mt-5">
       <div class="product">
-        <img src="/assets/images/kongBear.png" alt="Kong Bear" />
+        <img src="assets/images/kongBear.png" alt="Kong Bear" />
         <div class="container">
           <h2 class="title is-2">Kong Bear</h2>
           <h1 class="title is-4 is-primary">$7.99</h1>
@@ -43,7 +43,7 @@ include 'includes/head.php';
       </div>
     </div>
   </section>
-  <script src="../assets/js/product.js"></script>
+  <script src="assets/js/product.js"></script>
 </body>
 
 </html>

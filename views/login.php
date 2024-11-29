@@ -16,7 +16,7 @@ include 'includes/head.php';
         <p class="content">
           We're glad you're here! Please log in to continue.
         </p>
-        <form action="" method="GET">
+        <form action="<?= BASE_URL ?>" method="GET">
           <label for="username">Username</label>
           <input type="text" placeholder="username" />
           <label for="password">Password</label>
@@ -31,7 +31,7 @@ include 'includes/head.php';
       </div>
     </div>
   </section>
-  <script src="../assets/js/login.js"></script>
+  <script src="assets/js/login.js"></script>
 </body>
 
 </html>

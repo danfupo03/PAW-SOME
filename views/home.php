@@ -15,7 +15,7 @@ include 'includes/head.php';
       <a class="button is-light" href="<?= BASE_URL ?>about">About us</a>
     </div>
     <div class="hero-image">
-      <img src="/assets/images/dog.png" alt="Dog cartoon" />
+      <img src="assets/images/dog.png" alt="Dog cartoon" />
     </div>
   </section>
 
@@ -36,7 +36,7 @@ include 'includes/head.php';
       <div class="cards-container">
         <div class="card">
           <div class="card-content">
-            <img src="/assets/images/dogFood.png" alt="Dog Food" />
+            <img src="assets/images/dogFood.png" alt="Dog Food" />
             <h3 class="title is-4">Food</h3>
             <p>Find the best food for your pet.</p>
             <a class="button is-primary" href="<?= BASE_URL ?>/productList">View products</a>
@@ -44,7 +44,7 @@ include 'includes/head.php';
         </div>
         <div class="card">
           <div class="card-content">
-            <img src="/assets/images/dogHygiene.png" alt="Dog Hygiene" />
+            <img src="assets/images/dogHygiene.png" alt="Dog Hygiene" />
             <h3 class="title is-4">Hygiene</h3>
             <p>Keep your pet clean and healthy.</p>
             <a class="button is-primary" href="<?= BASE_URL ?>productList">View products</a>
@@ -52,7 +52,7 @@ include 'includes/head.php';
         </div>
         <div class="card">
           <div class="card-content">
-            <img src="/assets/images/dogToys.png" alt="Dog" />
+            <img src="assets/images/dogToys.png" alt="Dog" />
             <h3 class="title is-4">Toys</h3>
             <p>Toys and accessories for your pet.</p>
             <a class="button is-primary" href="<?= BASE_URL ?>/productList">View products</a>
@@ -61,7 +61,7 @@ include 'includes/head.php';
       </div>
     </div>
   </section>
-  <script src="../assets/js/index.js"></script>
+  <script src="assets/js/index.js"></script>
 </body>
 
 </html>
