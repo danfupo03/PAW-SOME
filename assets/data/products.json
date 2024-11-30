@@ -1,0 +1,74 @@
+[
+  {
+    "pid": 1,
+    "name": "KONG Plush Teddy Bear Dog Toy",
+    "description": "Soft, durable, and bear toy with a replaceable squeaker for endless fun.",
+    "image": "kongBear.png",
+    "category": "Toys",
+    "subcategory": "Stuffed Animals",
+    "price": 7.99
+  },
+  {
+    "pid": 2,
+    "name": "Frisco Plush Squeaking Squirrel Dog Toy",
+    "description": "Ultra-soft plush with squeakers to keep your dog engaged during playtime.",
+    "image": "friscoSquirrel.png",
+    "category": "Toys",
+    "subcategory": "Stuffed Animals",
+    "price": 6.99
+  },
+  {
+    "pid": 2,
+    "name": "Mr Mittens The Cat Plush Cat Toy",
+    "description": "Super soft, with cute details for your cat to have a cuddly friend to play with.",
+    "image": "gato.png",
+    "category": "Toys",
+    "subcategory": "Stuffed Animals",
+    "price": 9.99
+  },
+  {
+    "pid": 3,
+    "name": "Terry The Platypus Dog Toy",
+    "description": "Australian semi-aquatic mammalian agent Doobie, doobie, Doo-bah! It's Terry the platypus!",
+    "image": "perrybg.png",
+    "category": "Toys",
+    "subcategory": "Stuffed Animals",
+    "price": 8.99
+  },
+  {
+    "pid": 4,
+    "name": "Benebone Wishbone Durable Dog Chew Toy",
+    "description": "Real bacon flavor with an ergonomic design for hours of enjoyable chewing.",
+    "image": "benebone.png",
+    "category": "Toys",
+    "subcategory": "Chewables",
+    "price": 12.99
+  },
+  {
+    "pid": 5,
+    "name": "Nylabone Power Chew Dog Toy",
+    "description": "Designed for aggressive chewers, flavored with chicken and made for long-lasting play.",
+    "image": "nylabone.png",
+    "category": "Toys",
+    "subcategory": "Chewables",
+    "price": 9.99
+  },
+  {
+    "pid": 6,
+    "name": "Little Piece of Pie Chew Dog Toy",
+    "description": "To calm your dog's hunger, designed with a squeaker inside for hours of fun.",
+    "image": "pie.png",
+    "category": "Toys",
+    "subcategory": "Chewables",
+    "price": 6.99
+  },
+  {
+    "pid": 7,
+    "name": "Rolling Squeaky Chew Dog Toy",
+    "description": "Excellent for heavy duty use for the toughest chewers. Can be rolled for more fun!",
+    "image": "sqtoy.png",
+    "category": "Toys",
+    "subcategory": "Chewables",
+    "price": 10.99
+  }
+]
