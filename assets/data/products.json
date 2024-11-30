@@ -70,5 +70,41 @@
     "category": "Toys",
     "subcategory": "Chewables",
     "price": 10.99
+  },
+  {
+    "pid": 8,
+    "name": "Pedigree Adult Dry Dog Food",
+    "description": "Complete and balanced nutrition for adult dogs, with real chicken and vegetables.",
+    "image": "pedigree.png",
+    "category": "Food",
+    "subcategory": "Dog Food",
+    "price": 19.99
+  },
+  {
+    "pid": 9,
+    "name": "Whiskas Adult Dry Cat Food",
+    "description": "Complete and balanced nutrition for adult cats, with real salmon and vegetables.",
+    "image": "whiskas.png",
+    "category": "Food",
+    "subcategory": "Cat Food",
+    "price": 14.99
+  },
+  {
+    "pid": 10,
+    "name": "Shampoo for Dogs",
+    "description": "Gentle and effective shampoo for dogs, with aloe vera and oatmeal for a shiny coat.",
+    "image": "shampoo.png",
+    "category": "Hygiene",
+    "subcategory": "Shampoo",
+    "price": 8.99
+  },
+  {
+    "pid": 11,
+    "name": "Brush for Cats",
+    "description": "Soft bristles for a gentle grooming experience, with a comfortable handle for you.",
+    "image": "brush.png",
+    "category": "Hygiene",
+    "subcategory": "Brush",
+    "price": 5.99
   }
 ]
