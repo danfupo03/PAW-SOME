@@ -8,6 +8,14 @@ $products = json_decode(file_get_contents('assets/data/products.json'), true);
 if ($products === null) {
   echo "Error al cargar el JSON: " . json_last_error_msg();
 }
+
+$category = isset($_GET['category']) ? $_GET['category'] : null;
+
+if ($category) {
+  $products = array_filter($products, function ($product) use ($category) {
+    return $product['category'] === $category;
+  });
+}
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +48,7 @@ include 'includes/head.php';
               </p>
               <p>Price: $<?= $product['price'] ?></p>
               <div>
-                <a class="button is-info" href="#">View Details</a>
+                <a class="button is-info" href="<?= BASE_URL ?>product?pid=<?= htmlspecialchars($product['pid']) ?>">View Details</a>
                 <input type="number" min="1" value="1" />
                 <button class="button is-warning">Add to list</button>
               </div>
