@@ -1,33 +1,57 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+$products = json_decode(file_get_contents('assets/data/products.json'), true);
+if (!$products) {
+  echo "Error al cargar los productos.";
+  exit;
+}
+
+$pid = isset($_GET['pid']) ? $_GET['pid'] : null;
+if (!$pid) {
+  echo "Producto no encontrado.";
+  exit;
+}
+
+$product = null;
+foreach ($products as $p) {
+  if ($p['pid'] == $pid) {
+    $product = $p;
+    break;
+  }
+}
+
+if (!$product) {
+  echo "Producto no encontrado.";
+  exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
-<?php
-include 'includes/head.php';
-?>
+<?php include 'includes/head.php'; ?>
 
 <body>
-  <?php
-  include 'includes/navbar.php';
-  ?>
+  <?php include 'includes/navbar.php'; ?>
 
   <section>
     <div class="container mt-5">
       <div class="product">
-        <img src="assets/images/kongBear.png" alt="Kong Bear" />
+        <img src="assets/images/<?= $product['image'] ?>" alt="<?= $product['name'] ?>" />
         <div class="container">
-          <h2 class="title is-2">Kong Bear</h2>
-          <h1 class="title is-4 is-primary">$7.99</h1>
+          <h2 class="title is-2"><?= $product['name'] ?></h2>
+          <h1 class="title is-4 is-primary">$<?= $product['price'] ?></h1>
           <p class="content">
-            The Kong Bear plush toy is perfect for playful pets. This durable,
-            high-quality plush is designed to be gentle on teeth and gums,
-            while providing hours of fun and snuggles.
+            <?= $product['description'] ?>
           </p>
           <h1 class="title is-5"><strong>Features:</strong></h1>
           <ul class="content">
-            <li>Soft and durable plush material</li>
-            <li>Perfect for both playtime and nap time</li>
-            <li>Easy to clean, machine washable</li>
-            <li>Dimensions: 10 x 8 x 5 inches</li>
+            <?php foreach ($product['features'] as $feature) : ?>
+              <li><?= $feature ?></li>
+            <?php endforeach; ?>
           </ul>
           <div class="mt-5 buttons-container">
             <a id="changeColorButton" class="button is-info">
@@ -37,7 +61,9 @@ include 'includes/head.php';
               <i class="fa-solid fa-cart-shopping"></i>
               Add to Cart
             </a>
-            <button class="button is-danger" onclick="window.history.back();"><i class="fa-solid fa-arrow-left"></i> Go Back</button>
+            <button class="button is-danger" onclick="window.history.back();">
+              <i class="fa-solid fa-arrow-left"></i> Go Back
+            </button>
           </div>
         </div>
       </div>
