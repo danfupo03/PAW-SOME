@@ -57,6 +57,7 @@ include 'includes/head.php';
       </div>
     </div>
   </section>
+  <script src="assets/js/index.js"></script>
 </body>
 
 </html>
