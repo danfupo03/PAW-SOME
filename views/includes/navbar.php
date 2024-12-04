@@ -17,8 +17,8 @@
         <!-- Not logged in -->
         <a class="button is-secondary" href="<?= BASE_URL ?>login"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
         <!-- Logged in -->
-        <a class="button is-dark" href="<?= BASE_URL ?>customer"><i class="fa-solid fa-user"></i></a>
-        <a class="button is-dark" href="<?= BASE_URL ?>shoppingCart"><i class="fa-solid fa-cart-shopping"></i></a>
+        <a class="button is-secondary" href="<?= BASE_URL ?>customer"><i class="fa-solid fa-user"></i></a>
+        <a class="button is-info" href="<?= BASE_URL ?>shoppingCart"><i class="fa-solid fa-cart-shopping"></i></a>
         <a class="button is-danger" href="<?= BASE_URL ?>logout">
             <i class="fa-solid fa-right-from-bracket"></i> Logout
         </a>

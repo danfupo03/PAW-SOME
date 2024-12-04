@@ -301,17 +301,15 @@ a {
 }
 
 .card-content input {
-  padding: 10px;
+  padding: 0.5rem 1rem;
   border: 1px solid #e4e4e4;
   border-radius: 4px;
-  margin-bottom: 10px;
-  transition: all 0.2s ease-in-out;
   background-color: var(--background-color);
 }
 
 .category-pill {
   background-color: var(--success);
-  color: var(--text-color);
+  color: var(--title-color);
   padding: 10px 20px;
   display: inline-block;
   border-radius: 16px;
@@ -319,7 +317,7 @@ a {
 
 .subcategory-pill {
   background-color: var(--warning);
-  color: var(--text-color);
+  color: var(--title-color);
   padding: 10px 20px;
   display: inline-block;
   border-radius: 16px;

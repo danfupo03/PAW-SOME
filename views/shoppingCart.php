@@ -49,7 +49,7 @@ include 'includes/head.php';
               <p>Price: $<?= $product['price'] ?></p>
               <div>
                 <a class="button is-info" href="<?= BASE_URL ?>product?pid=<?= htmlspecialchars($product['pid']) ?>">View Details</a>
-                <button class="button is-warning">Delete from cart</button>
+                <button class="button is-danger"><i class="fa-solid fa-trash"></i> Delete</button>
               </div>
             </div>
           </div>
