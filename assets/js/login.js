@@ -27,7 +27,7 @@ form.addEventListener("submit", (e) => {
   const passwordInput = document.querySelector('input[type="password"]');
   const usernameInput = document.querySelector('input[type="text"]');
   if (passwordInput.value === password && usernameInput.value === username) {
-    window.location.href = "index.html";
+    alert("Login successful");
   } else {
     alert("Invalid username or password");
   }

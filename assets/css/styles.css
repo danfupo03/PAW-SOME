@@ -106,9 +106,7 @@ a {
   align-items: center;
   padding: 10px 20px;
   background-color: var(--primary);
-  box-shadow:
-    0 4px 8px rgba(0, 0, 0, 0.3),
-    0 6px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.2);
   transform: translateZ(0);
 }
 
@@ -303,12 +301,26 @@ a {
 }
 
 .card-content input {
-  padding: 10px;
+  padding: 0.5rem 1rem;
   border: 1px solid #e4e4e4;
   border-radius: 4px;
-  margin-bottom: 10px;
-  transition: all 0.2s ease-in-out;
   background-color: var(--background-color);
+}
+
+.category-pill {
+  background-color: var(--success);
+  color: var(--title-color);
+  padding: 10px 20px;
+  display: inline-block;
+  border-radius: 16px;
+}
+
+.subcategory-pill {
+  background-color: var(--warning);
+  color: var(--title-color);
+  padding: 10px 20px;
+  display: inline-block;
+  border-radius: 16px;
 }
 
 @media (max-width: 425px) {
@@ -403,7 +415,7 @@ a {
 
 .buttons-container {
   display: flex;
-  gap: 10px;
+  gap: 5px;
 }
 
 @media (max-width: 768px) {
