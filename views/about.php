@@ -5,6 +5,22 @@
 include 'includes/head.php';
 ?>
 
+<?php
+$aboutUs = "We are a dedicated platform committed to connecting pet lovers with
+top-quality pet products and services. Our mission is to provide a
+seamless shopping experience for pet owners, ensuring they find
+everything they need to keep their pets happy and healthy. Our team is
+passionate about making it easy for pet owners to access trusted
+products and services.";
+?>
+
+
+<?php
+$values = "We believe in transparency, quality, and the well-being of pets and
+their owners. Our marketplace is built on trust and strives to foster
+meaningful connections between suppliers and pet enthusiasts.";
+?>
+
 <body>
   <?php
   include 'includes/navbar.php';
@@ -22,19 +38,12 @@ include 'includes/head.php';
     <div class="container">
       <h2 class="title is-3">About Us</h2>
       <p class="content">
-        We are a dedicated platform committed to connecting pet lovers with
-        top-quality pet products and services. Our mission is to provide a
-        seamless shopping experience for pet owners, ensuring they find
-        everything they need to keep their pets happy and healthy. Our team is
-        passionate about making it easy for pet owners to access trusted
-        products and services.
+        <?= $aboutUs ?>
       </p>
 
       <h2 class="title is-3">Our Values</h2>
       <p class="content">
-        We believe in transparency, quality, and the well-being of pets and
-        their owners. Our marketplace is built on trust and strives to foster
-        meaningful connections between suppliers and pet enthusiasts.
+        <?= $values ?>
       </p>
 
       <h2 class="title is-3">Contact Us</h2>
