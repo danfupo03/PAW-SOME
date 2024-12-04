@@ -4,6 +4,16 @@
 include 'includes/head.php';
 ?>
 
+<?php
+$description = "Everything you are looking for your best friend in one place.";
+?>
+
+<?php
+$information = "In Paw-some we care about your furry friends. We offer a wide range 
+of products and services to meet your needs. Whether you're looking for food, 
+toys or any hygiene products, we have got you covered.";
+?>
+
 <body>
   <?php
   include 'includes/navbar.php';
@@ -11,7 +21,9 @@ include 'includes/head.php';
   <section class="hero">
     <div class="hero-text ml-5">
       <h1 class="title is-2">Welcome to Paw-some</h1>
-      <p>Everything you are looking for your best friend in one place.</p>
+      <p>
+        <?= $description ?>
+      </p>
       <a class="button is-light" href="<?= BASE_URL ?>about">About us</a>
     </div>
     <div class="hero-image">
@@ -23,9 +35,7 @@ include 'includes/head.php';
     <div class="container mb-5">
       <h2 class="title is-2">General Information</h2>
       <p class="content">
-        In Paw-some we care about your furry friends. We offer a wide range of
-        products and services to meet your needs. Whether you're looking for
-        food, toys or any hygiene products, we have got you covered.
+        <?= $information ?>
       </p>
     </div>
   </section>
