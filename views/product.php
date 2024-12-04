@@ -54,13 +54,10 @@ if (!$product) {
             <?php endforeach; ?>
           </ul>
           <div class="mt-5 buttons-container">
-            <a id="changeColorButton" class="button is-info">
-              Change Color
-            </a>
-            <a class="button is-secondary">
+            <button class="button is-secondary">
               <i class="fa-solid fa-cart-shopping"></i>
               Add to Cart
-            </a>
+            </button>
             <button class="button is-danger" onclick="window.history.back();">
               <i class="fa-solid fa-arrow-left"></i> Go Back
             </button>

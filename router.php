@@ -10,7 +10,8 @@ $routes = [
     '/logout' => 'views/logout.php',
     '/product' => 'views/product.php',
     '/productList' => 'views/productList.php',
-    '/shoppingCart' => 'views/shoppingCart.php'
+    '/comparison' => 'views/comparison.php',
+    '/shoppingCart' => 'views/shoppingCart.php',
 ];
 
 function runRoute($route)
