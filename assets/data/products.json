@@ -144,7 +144,7 @@
       "Gentle on dog's skin",
       "Enhances coat shine"
     ],
-    "image": "shampoo.png",
+    "image": "fleaShampoo.png",
     "category": "Hygiene",
     "subcategory": "Shampoo",
     "price": 8.99
@@ -158,7 +158,7 @@
       "Ergonomic handle design",
       "Perfect for reducing shedding"
     ],
-    "image": "brush.png",
+    "image": "slickerBrush.png",
     "category": "Hygiene",
     "subcategory": "Brush",
     "price": 5.99
