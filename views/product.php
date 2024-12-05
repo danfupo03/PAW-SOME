@@ -32,7 +32,7 @@ $product = $result->fetch_assoc();
     <div class="container mt-5">
       <div class="product">
         <img src="assets/images/<?= $product['image'] ?>" alt="<?= $product['name'] ?>" />
-        <div class="container">
+        <div class="product-info">
           <h2 class="title is-2"><?= $product['name'] ?></h2>
           <h1 class="title is-4 is-primary">$<?= $product['price'] ?></h1>
           <p class="content">
