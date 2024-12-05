@@ -12,6 +12,7 @@ $routes = [
     '/productList' => 'views/productList.php',
     '/comparison' => 'views/comparison.php',
     '/shoppingCart' => 'views/shoppingCart.php',
+    '/404' => 'views/404.php',
 ];
 
 function runRoute($route)
@@ -22,6 +23,6 @@ function runRoute($route)
         require $routes[$route];
     } else {
         http_response_code(404);
-        echo '404 Not Found';
+        require $routes['/404'];
     }
 }

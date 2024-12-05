@@ -11,7 +11,7 @@ if (!$products) {
 
 $pids = isset($_GET['pid']) ? $_GET['pid'] : [];
 if (empty($pids)) {
-    echo "No se seleccionaron productos.";
+    echo "Products were not selected for comparison.";
     exit;
 }
 
@@ -20,7 +20,7 @@ $selectedProducts = array_filter($products, function ($product) use ($pids) {
 });
 
 if (empty($selectedProducts)) {
-    echo "No se encontraron productos seleccionados.";
+    echo "No products found for comparison.";
     exit;
 }
 ?>
