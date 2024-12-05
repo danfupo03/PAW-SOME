@@ -3,30 +3,21 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-$products = json_decode(file_get_contents('assets/data/products.json'), true);
-if (!$products) {
-  echo "Error al cargar los productos.";
-  exit;
-}
+require_once 'db.php';
 
 $pid = isset($_GET['pid']) ? $_GET['pid'] : null;
-if (!$pid) {
-  echo "Producto no encontrado.";
+
+if ($pid) {
+  $stmt = $conn->prepare("SELECT * FROM products WHERE pid = ?");
+  $stmt->bind_param("i", $pid);
+  $stmt->execute();
+  $result = $stmt->get_result();
+} else {
+  echo "Product not found.";
   exit;
 }
 
-$product = null;
-foreach ($products as $p) {
-  if ($p['pid'] == $pid) {
-    $product = $p;
-    break;
-  }
-}
-
-if (!$product) {
-  echo "Producto no encontrado.";
-  exit;
-}
+$product = $result->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -48,11 +39,9 @@ if (!$product) {
             <?= $product['description'] ?>
           </p>
           <h1 class="title is-5"><strong>Features:</strong></h1>
-          <ul class="content">
-            <?php foreach ($product['features'] as $feature) : ?>
-              <li><?= $feature ?></li>
-            <?php endforeach; ?>
-          </ul>
+          <p class="content">
+            <?= $product['features'] ?>
+          </p>
           <div class="mt-5 buttons-container">
             <button class="button is-secondary">
               <i class="fa-solid fa-cart-shopping"></i>

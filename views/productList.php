@@ -3,19 +3,20 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-$products = json_decode(file_get_contents('assets/data/products.json'), true);
-
-if ($products === null) {
-  echo "Error al cargar el JSON: " . json_last_error_msg();
-}
+require_once 'db.php';
 
 $category = isset($_GET['category']) ? $_GET['category'] : null;
 
 if ($category) {
-  $products = array_filter($products, function ($product) use ($category) {
-    return $product['category'] === $category;
-  });
+  $stmt = $conn->prepare("SELECT * FROM products WHERE category = ?");
+  $stmt->bind_param("s", $category);
+  $stmt->execute();
+  $result = $stmt->get_result();
+} else {
+  $result = $conn->query("SELECT * FROM products");
 }
+
+$products = $result->fetch_all(MYSQLI_ASSOC);
 ?>
 
 <!DOCTYPE html>
