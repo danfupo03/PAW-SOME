@@ -1,3 +1,38 @@
+<?php
+session_start();
+require 'db.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $username = $_POST['username'];
+  $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+  $state = 'active';
+
+  $conn->begin_transaction();
+
+  try {
+    $stmt = $conn->prepare('INSERT INTO users (username, password, state) VALUES (?, ?, ?)');
+    $stmt->bind_param('sss', $username, $password, $state);
+    $stmt->execute();
+
+    $uid = $conn->insert_id;
+
+    $rid = 2;
+    $roleStmt = $conn->prepare('INSERT INTO user_roles (uid, rid) VALUES (?, ?)');
+    $roleStmt->bind_param('ii', $uid, $rid);
+    $roleStmt->execute();
+
+    $conn->commit();
+
+    header('Location: login');
+    exit();
+  } catch (Exception $e) {
+    $conn->rollback();
+    echo "<script>alert('Error registering user " . addslashes($e->getMessage()) . "');</script>";
+  }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,14 +49,14 @@ include 'includes/head.php';
       <div class="form mt-5">
         <h1 class="title is-3">Join Paw-Some &#128054;</h1>
         <p class="content">Create an account to start exploring!</p>
-        <form action="" method="GET" id="registerForm">
+        <form action="" method="POST" id="registerForm">
           <label for="username">Username</label>
-          <input type="text" placeholder="JohnDoe03" required id="username" />
+          <input type="text" placeholder="JohnDoe03" id="username" name="username" required />
           <span id="usernameError" style="color: red; display: none">The username must contain at least 5 characters and at least one
             capital letter and one lower case letter</span>
 
           <label for="password">Password</label>
-          <input type="text" placeholder="password" id="password" required />
+          <input type="text" placeholder="password" id="password" name="password" required />
           <span id="passwordError">The password must be at least 10 characters long</span>
 
           <label for="confirmPassword">Confirm Password</label>

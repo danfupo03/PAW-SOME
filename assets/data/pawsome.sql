@@ -1,5 +1,12 @@
+--
+-- Base de datos: `pawsome`
+--
+DROP DATABASE IF EXISTS pawsome;
+CREATE DATABASE IF NOT EXISTS pawsome DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE pawsome;
+
 CREATE TABLE products (
-    pid INT PRIMARY KEY,
+    pid INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255),
     description TEXT,
     features TEXT,
@@ -22,3 +29,69 @@ INSERT INTO Products (pid, name, description, features, image, category, subcate
 (10, "Whiskas Adult Dry Cat Food", "Complete and balanced nutrition for adult cats, with real salmon and vegetables.", "Rich in salmon flavor, Balanced nutrition for adult cats, Made with real vegetables", "whiskas.png", "Food", "Cat Food", 14.99),
 (11, "Shampoo for Dogs", "Gentle and effective shampoo for dogs, with aloe vera and oatmeal for a shiny coat.", "Contains aloe vera and oatmeal, Gentle on dog's skin, Enhances coat shine", "fleaShampoo.png", "Hygiene", "Shampoo", 8.99),
 (12, "Brush for Cats", "Soft bristles for a gentle grooming experience, with a comfortable handle for you.", "Soft bristles for gentle grooming, Ergonomic handle design, Perfect for reducing shedding", "slickerBrush.png", "Hygiene", "Brush", 5.99);
+
+
+CREATE TABLE users (
+    uid INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50),
+    password VARCHAR(255),
+    state enum('active', 'blocked'), 
+    number_of_orders INT DEFAULT 0
+);
+
+INSERT INTO users (uid, username, password, state, number_of_orders) VALUES
+(1, "admin", "password123", "active", 0),
+(2, "user", "password123", "active", 0),
+(3, "user2", "password123", "blocked", 0);
+
+CREATE TABLE shopping_cart (
+    sid INT PRIMARY KEY AUTO_INCREMENT,
+    uid INT,
+    pid INT,
+    quantity INT,
+    FOREIGN KEY (uid) REFERENCES users(uid),
+    FOREIGN KEY (pid) REFERENCES products(pid)
+);
+
+INSERT INTO shopping_cart (sid, uid, pid, quantity) VALUES
+(1, 2, 1, 2),
+(2, 2, 2, 1),
+(3, 2, 3, 1),
+(4, 2, 4, 1),
+(5, 2, 5, 1),
+(6, 2, 6, 1),
+(7, 2, 7, 1),
+(8, 2, 8, 1),
+(9, 2, 9, 1),
+(10, 2, 10, 1),
+(11, 2, 11, 1),
+(12, 2, 12, 1);
+
+CREATE TABLE roles (
+    rid INT PRIMARY KEY AUTO_INCREMENT,
+    role VARCHAR(50)
+);
+
+INSERT INTO roles (rid, role) VALUES
+(1, "admin"),
+(2, "user");
+
+CREATE TABLE user_roles (
+    uid INT,
+    rid INT,
+    FOREIGN KEY (uid) REFERENCES users(uid),
+    FOREIGN KEY (rid) REFERENCES roles(rid)
+);
+
+INSERT INTO user_roles (uid, rid) VALUES
+(1, 1),
+(2, 2);
+
+CREATE TABLE orders (
+    oid INT PRIMARY KEY AUTO_INCREMENT,
+    uid INT,
+    total DECIMAL(10, 2),
+    order_date TIMESTAMP,
+    state enum('new', 'in_progress', 'rejected', 'completed'),
+    FOREIGN KEY (uid) REFERENCES users(uid)
+);
