@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit();
   } catch (Exception $e) {
     $conn->rollback();
-    echo "<script>alert('Error registering user " . addslashes($e->getMessage()) . "');</script>";
+    echo "Error creating user: " . $e->getMessage();
   }
 }
 ?>

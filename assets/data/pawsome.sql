@@ -39,11 +39,6 @@ CREATE TABLE users (
     number_of_orders INT DEFAULT 0
 );
 
-INSERT INTO users (uid, username, password, state, number_of_orders) VALUES
-(1, "admin", "password123", "active", 0),
-(2, "user", "password123", "active", 0),
-(3, "user2", "password123", "blocked", 0);
-
 CREATE TABLE shopping_cart (
     sid INT PRIMARY KEY AUTO_INCREMENT,
     uid INT,
@@ -53,19 +48,19 @@ CREATE TABLE shopping_cart (
     FOREIGN KEY (pid) REFERENCES products(pid)
 );
 
-INSERT INTO shopping_cart (sid, uid, pid, quantity) VALUES
-(1, 2, 1, 2),
-(2, 2, 2, 1),
-(3, 2, 3, 1),
-(4, 2, 4, 1),
-(5, 2, 5, 1),
-(6, 2, 6, 1),
-(7, 2, 7, 1),
-(8, 2, 8, 1),
-(9, 2, 9, 1),
-(10, 2, 10, 1),
-(11, 2, 11, 1),
-(12, 2, 12, 1);
+-- INSERT INTO shopping_cart (sid, uid, pid, quantity) VALUES
+-- (1, 2, 1, 2),
+-- (2, 2, 2, 1),
+-- (3, 2, 3, 1),
+-- (4, 2, 4, 1),
+-- (5, 2, 5, 1),
+-- (6, 2, 6, 1),
+-- (7, 2, 7, 1),
+-- (8, 2, 8, 1),
+-- (9, 2, 9, 1),
+-- (10, 2, 10, 1),
+-- (11, 2, 11, 1),
+-- (12, 2, 12, 1);
 
 CREATE TABLE roles (
     rid INT PRIMARY KEY AUTO_INCREMENT,
@@ -82,10 +77,6 @@ CREATE TABLE user_roles (
     FOREIGN KEY (uid) REFERENCES users(uid),
     FOREIGN KEY (rid) REFERENCES roles(rid)
 );
-
-INSERT INTO user_roles (uid, rid) VALUES
-(1, 1),
-(2, 2);
 
 CREATE TABLE orders (
     oid INT PRIMARY KEY AUTO_INCREMENT,

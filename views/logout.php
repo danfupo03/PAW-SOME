@@ -1,9 +1,18 @@
+<?php
+session_start();
+
+if (isset($_SESSION['user_id'])) {
+  session_unset();
+  session_destroy();
+  header("Location: logout");
+  exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
-<?php
-include 'includes/head.php';
-?>
+<?php include 'includes/head.php'; ?>
 
 <body class="body">
   <div class="mt-3">

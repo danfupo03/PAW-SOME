@@ -2,21 +2,26 @@
 session_start();
 require 'db.php';
 
+$error_message = '';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $username = $_POST['username'];
   $password = $_POST['password'];
 
   $stmt = $conn->prepare('SELECT * FROM users WHERE username = ?');
-  $stmt->execute([$username]);
-  $user = $stmt->fetch();
+  $stmt->bind_param('s', $username);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  $user = $result->fetch_assoc();
 
-  if ($user && $password) {
-    $_SESSION['user_id'] = $user['id'];
+  if ($user && password_verify($password, $user['password'])) {
+    $_SESSION['user_id'] = $user['uid'];
     $_SESSION['username'] = $user['username'];
-    header('Location: ' . 'customer');
+
+    header('Location: /PAW-SOME/');
     exit();
   } else {
-    echo "Usuario o contraseña incorrectos.";
+    $error_message = "Invalid username or password.";
   }
 }
 ?>
@@ -46,6 +51,9 @@ include 'includes/head.php';
           <input type="password" placeholder="password" name="password" required />
           <button class="button is-secondary" type="submit">Login</button>
         </form>
+        <?php if (!empty($error_message)): ?>
+          <p class="content"><small><?= $error_message ?></small></p>
+        <?php endif; ?>
         <div class="mb-3">
           <h1 class="title is-5">Not an account yet?</h1>
           <a class="button is-info" href="register">Register</a>
