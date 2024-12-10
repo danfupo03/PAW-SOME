@@ -1,6 +1,4 @@
 <?php
-//define('BASE_URL', '/PAW-SOME/');
-
 $routes = [
     '/' => __DIR__ . '/views/home.php',
     '/about' => __DIR__ . '/views/about.php',
@@ -25,6 +23,6 @@ function runRoute($route)
         require $routes[$route];
     } else {
         http_response_code(404);
-        require __DIR__ . '/views/404.php'; // Asegúrate de que 404.php exista.
+        require __DIR__ . '/views/404.php'; 
     }
 }
