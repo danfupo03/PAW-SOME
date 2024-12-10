@@ -35,7 +35,7 @@ include 'includes/head.php';
 
         <div class="mb-3">
           <h1 class="title is-5">Already an account?</h1>
-          <a class="button is-dark" href="<?= BASE_URL ?>login">Login</a>
+          <a class="button is-dark" href="login">Login</a>
         </div>
       </div>
     </div>

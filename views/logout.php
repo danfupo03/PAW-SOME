@@ -23,8 +23,8 @@ include 'includes/head.php';
           <figcaption>We hope to see you again soon!</figcaption>
         </figure>
         <div class="mt-5 mb-5">
-          <a class="button is-secondary" href="<?= BASE_URL ?>login">Login Page</a>
-          <a class="button is-primary" href="<?= BASE_URL ?>">Home Page</a>
+          <a class="button is-secondary" href="login">Login Page</a>
+          <a class="button is-primary" href="">Home Page</a>
         </div>
       </div>
     </div>

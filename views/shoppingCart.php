@@ -48,7 +48,7 @@ include 'includes/head.php';
               </p>
               <p>Price: $<?= $product['price'] ?></p>
               <div>
-                <a class="button is-info" href="<?= BASE_URL ?>product?pid=<?= htmlspecialchars($product['pid']) ?>">View Details</a>
+                <a class="button is-info" href="product?pid=<?= htmlspecialchars($product['pid']) ?>">View Details</a>
                 <button class="button is-danger"><i class="fa-solid fa-trash"></i> Delete</button>
               </div>
             </div>

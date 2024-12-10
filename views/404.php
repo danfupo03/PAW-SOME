@@ -14,14 +14,14 @@ include 'includes/head.php';
       <div class="log-out">
         <h1 class="title is-1">404</h1>
         <p class="content">
-            Page not found. Please check the URL and try again.
+          Page not found. Please check the URL and try again.
         </p>
 
         <figure>
           <img src="assets/images/404.png" alt="404" />
         </figure>
         <div class="mt-5 mb-5">
-          <a class="button is-primary" href="<?= BASE_URL ?>">Home Page</a>
+          <a class="button is-primary" href="">Home Page</a>
         </div>
       </div>
     </div>
