@@ -49,6 +49,12 @@ a {
   text-decoration: none;
 }
 
+small {
+  font-size: 0.8rem;
+  font-family: Lato, sans-serif;
+  color: var(--danger);
+}
+
 .dark-mode {
   --primary: #a84207;
   --secondary: #351d66;
