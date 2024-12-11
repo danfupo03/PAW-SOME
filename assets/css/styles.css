@@ -497,3 +497,37 @@ small {
   transition: all 0.2s ease-in-out;
   background-color: var(--background-color);
 }
+
+/* Shopping Cart */
+.shopping-cart-item {
+  display: grid;
+  grid-template-columns: 95% 5%;
+  align-items: center;
+  gap: 10px;
+}
+
+.delete-button {
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.shopping-cart-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 7.5em;
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.shopping-cart-content img {
+  width: 100px;
+  height: 100px;
+}
