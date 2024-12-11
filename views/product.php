@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -18,6 +20,32 @@ if ($pid) {
 }
 
 $product = $result->fetch_assoc();
+
+$uid = $_SESSION['user_id'];
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $userId = $_POST['userId'];
+  $productId = $_POST['productId'];
+  $quantity = $_POST['quantity'];
+
+  $conn->begin_transaction();
+
+  try {
+    $stmt = $conn->prepare('INSERT INTO shopping_cart (uid, pid, quantity) VALUES (?, ?, ?)');
+    $stmt->bind_param('iii', $userId, $productId, $quantity);
+    $stmt->execute();
+
+    $conn->commit();
+
+    header('Location: shoppingCart');
+    exit();
+  } catch (Exception $e) {
+    $conn->rollback();
+    echo "Error adding to cart: " . $e->getMessage();
+  }
+  $conn->begin_transaction();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -42,15 +70,20 @@ $product = $result->fetch_assoc();
           <p class="content">
             <?= $product['features'] ?>
           </p>
-          <div class="mt-5 buttons-container">
-            <button class="button is-secondary">
-              <i class="fa-solid fa-cart-shopping"></i>
-              Add to Cart
-            </button>
-            <button class="button is-danger" onclick="window.history.back();">
-              <i class="fa-solid fa-arrow-left"></i> Go Back
-            </button>
-          </div>
+          <form action="" method="POST">
+            <input type="hidden" name="userId" value="<?= $uid ?>">
+            <input type="hidden" name="productId" value="<?= $product['pid'] ?>">
+            <input type="number" name="quantity" value="1" min="1" class="input">
+            <div class="mt-5 buttons-container">
+              <button class="button is-secondary" type="submit">
+                <i class="fa-solid fa-cart-arrow-down"></i>
+                Add to Cart
+              </button>
+              <button class="button is-danger" onclick="window.history.back();">
+                <i class="fa-solid fa-arrow-left"></i> Go Back
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
