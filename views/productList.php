@@ -42,8 +42,8 @@ include 'includes/head.php';
                 <img src="assets/images/<?= $product['image'] ?>" alt="<?= $product['name'] ?>" />
                 <h1 class="title is-5"><?= $product['name'] ?> </h1>
                 <div>
-                  <span class="category-pill"><?= $product['category'] ?></span>
-                  <span class="subcategory-pill"><?= $product['subcategory'] ?></span>
+                  <span class="pill-success"><?= $product['category'] ?></span>
+                  <span class="pill-warning"><?= $product['subcategory'] ?></span>
                 </div>
                 <p class="content">
                   <?= $product['description'] ?>

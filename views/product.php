@@ -21,7 +21,7 @@ if ($pid) {
 
 $product = $result->fetch_assoc();
 
-$uid = $_SESSION['user_id'];
+$uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $userId = $_POST['userId'];

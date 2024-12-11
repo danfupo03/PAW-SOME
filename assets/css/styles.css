@@ -313,7 +313,14 @@ small {
   background-color: var(--background-color);
 }
 
-.category-pill {
+@media (max-width: 425px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Pills */
+.pill-success {
   background-color: var(--success);
   color: var(--title-color);
   padding: 10px 20px;
@@ -321,7 +328,7 @@ small {
   border-radius: 16px;
 }
 
-.subcategory-pill {
+.pill-warning {
   background-color: var(--warning);
   color: var(--title-color);
   padding: 10px 20px;
@@ -329,10 +336,12 @@ small {
   border-radius: 16px;
 }
 
-@media (max-width: 425px) {
-  .cards-container {
-    grid-template-columns: 1fr;
-  }
+.pill-danger {
+  background-color: var(--danger);
+  color: var(--title-color);
+  padding: 10px 20px;
+  display: inline-block;
+  border-radius: 16px;
 }
 
 /* Contact card */
@@ -547,4 +556,21 @@ small {
   border: 1px solid #e4e4e4;
   border-radius: 4px;
   background-color: var(--background-color);
+}
+
+/* Users */
+.users {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
