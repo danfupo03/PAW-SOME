@@ -73,19 +73,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <form action="" method="POST">
             <input type="hidden" name="userId" value="<?= $uid ?>">
             <input type="hidden" name="productId" value="<?= $product['pid'] ?>">
-            <input type="number" name="quantity" value="1" min="1" class="input">
-            <div class="mt-5 buttons-container">
+            <div>
+              <label for="quantity">Quantity:</label>
+              <input type="number" name="quantity" value="1" min="1" class="input">
+            </div>
+            <div class="mt-3">
               <button class="button is-secondary" type="submit">
                 <i class="fa-solid fa-cart-arrow-down"></i>
                 Add to Cart
-              </button>
-              <button class="button is-danger" onclick="window.history.back();">
-                <i class="fa-solid fa-arrow-left"></i> Go Back
               </button>
             </div>
           </form>
         </div>
       </div>
+      <button class="button is-danger" onclick="window.history.back();">
+        <i class="fa-solid fa-arrow-left"></i> Go Back
+      </button>
     </div>
   </section>
   <script src="assets/js/product.js"></script>
