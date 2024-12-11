@@ -1,5 +1,5 @@
 <?php
-require_once 'router.php';
+require_once __DIR__ . '/router.php';
 
-$route = str_replace(BASE_URL, '', $_GET['route'] ?? '/');
+$route = $_GET['route'] ?? '/';
 runRoute($route);
