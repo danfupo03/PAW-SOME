@@ -42,15 +42,15 @@ include 'includes/head.php';
                 <img src="assets/images/<?= $product['image'] ?>" alt="<?= $product['name'] ?>" />
                 <h1 class="title is-5"><?= $product['name'] ?> </h1>
                 <div>
-                  <span class="category-pill"><?= $product['category'] ?></span>
-                  <span class="subcategory-pill"><?= $product['subcategory'] ?></span>
+                  <span class="pill-success"><?= $product['category'] ?></span>
+                  <span class="pill-warning"><?= $product['subcategory'] ?></span>
                 </div>
                 <p class="content">
                   <?= $product['description'] ?>
                 </p>
                 <p class="content mb-4">Price: $<?= $product['price'] ?></p>
                 <div>
-                  <a class="button is-info" href="<?= BASE_URL ?>product?pid=<?= htmlspecialchars($product['pid']) ?>">View Details</a>
+                  <a class="button is-info" href="product?pid=<?= htmlspecialchars($product['pid']) ?>">View Details</a>
                   <input type="checkbox" name="pid[]" value="<?= $product['pid'] ?>" id="<?= $product['pid'] ?>" />
                   <label for="<?= $product['pid'] ?>">Compare</label>
                 </div>

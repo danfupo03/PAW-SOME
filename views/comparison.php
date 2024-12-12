@@ -3,24 +3,22 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-$products = json_decode(file_get_contents('assets/data/products.json'), true);
-if (!$products) {
-    echo "Error al cargar los productos.";
-    exit;
-}
+require_once 'db.php';
 
 $pids = isset($_GET['pid']) ? $_GET['pid'] : [];
-if (empty($pids)) {
-    echo "Products were not selected for comparison.";
-    exit;
-}
 
-$selectedProducts = array_filter($products, function ($product) use ($pids) {
-    return in_array($product['pid'], $pids);
-});
-
-if (empty($selectedProducts)) {
-    echo "No products found for comparison.";
+if ($pids) {
+    $stmt = $conn->prepare("SELECT * FROM products WHERE pid = ?");
+    $selectedProducts = [];
+    foreach ($pids as $pid) {
+        $stmt->bind_param("i", $pid);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $product = $result->fetch_assoc();
+        $selectedProducts[] = $product;
+    }
+} else {
+    echo "Product not found.";
     exit;
 }
 ?>
@@ -39,19 +37,17 @@ if (empty($selectedProducts)) {
             <?php foreach ($selectedProducts as $product): ?>
                 <div class="product mb-5">
                     <img src="assets/images/<?= $product['image'] ?>" alt="<?= $product['name'] ?>" />
-                    <div class="container">
+                    <div class="product-info">
                         <h2 class="title is-2"><?= $product['name'] ?></h2>
                         <h1 class="title is-4 is-primary">$<?= $product['price'] ?></h1>
                         <p class="content">
                             <?= $product['description'] ?>
                         </p>
                         <h1 class="title is-5"><strong>Features:</strong></h1>
-                        <ul class="content">
-                            <?php foreach ($product['features'] as $feature): ?>
-                                <li><?= $feature ?></li>
-                            <?php endforeach; ?>
-                        </ul>
-                        <div class="mt-5 buttons-container">
+                        <p class="content">
+                            <?= $product['features'] ?>
+                        </p>
+                        <div class="buttons-container">
                             <button class="button is-secondary">
                                 <i class="fa-solid fa-cart-shopping"></i>
                                 Add to Cart

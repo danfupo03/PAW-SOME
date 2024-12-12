@@ -24,7 +24,7 @@ toys or any hygiene products, we have got you covered.";
       <p>
         <?= $description ?>
       </p>
-      <a class="button is-light" href="<?= BASE_URL ?>about">About us</a>
+      <a class="button is-light" href="about">About us</a>
     </div>
     <div class="hero-image">
       <img src="assets/images/dog.png" alt="Dog cartoon" />
@@ -49,7 +49,7 @@ toys or any hygiene products, we have got you covered.";
             <img src="assets/images/dogFood.png" alt="Dog Food" />
             <h3 class="title is-4">Food</h3>
             <p>Find the best food for your pet.</p>
-            <a class="button is-primary" href="<?= BASE_URL ?>productList?category=Food">View products</a>
+            <a class="button is-primary" href="productList?category=Food">View products</a>
           </div>
         </div>
         <div class="card">
@@ -57,7 +57,7 @@ toys or any hygiene products, we have got you covered.";
             <img src="assets/images/dogHygiene.png" alt="Dog Hygiene" />
             <h3 class="title is-4">Hygiene</h3>
             <p>Keep your pet clean and healthy.</p>
-            <a class="button is-primary" href="<?= BASE_URL ?>productList?category=Hygiene">View products</a>
+            <a class="button is-primary" href="productList?category=Hygiene">View products</a>
           </div>
         </div>
         <div class="card">
@@ -65,7 +65,7 @@ toys or any hygiene products, we have got you covered.";
             <img src="assets/images/dogToys.png" alt="Dog" />
             <h3 class="title is-4">Toys</h3>
             <p>Toys and accessories for your pet.</p>
-            <a class="button is-primary" href="<?= BASE_URL ?>productList?category=Toys">View products</a>
+            <a class="button is-primary" href="productList?category=Toys">View products</a>
           </div>
         </div>
       </div>

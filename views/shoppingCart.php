@@ -3,58 +3,76 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-$products = json_decode(file_get_contents('assets/data/products.json'), true);
+session_start();
 
-if ($products === null) {
-  echo "Error al cargar el JSON: " . json_last_error_msg();
+if (!isset($_SESSION['user_id'])) {
+  header('Location: login');
+  exit();
 }
 
-$category = "Food";
+require 'db.php';
+$uid = $_SESSION['user_id'];
 
-if ($category) {
-  $products = array_filter($products, function ($product) use ($category) {
-    return $product['category'] === $category;
-  });
+$stmt = $conn->prepare("
+    SELECT sc.sid, sc.quantity, p.price, p.name, p.description, p.image
+    FROM shopping_cart sc
+    JOIN products p ON sc.pid = p.pid
+    WHERE sc.uid = ?
+");
+$stmt->bind_param("i", $uid);
+$stmt->execute();
+$result = $stmt->get_result();
+$products = $result->fetch_all(MYSQLI_ASSOC);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $sid = $_POST['sid'];
+
+  $conn->begin_transaction();
+
+  try {
+    $stmt = $conn->prepare('DELETE FROM shopping_cart WHERE sid = ?');
+    $stmt->bind_param('i', $sid);
+    $stmt->execute();
+
+    $conn->commit();
+
+    header('Location: shoppingCart');
+    exit();
+  } catch (Exception $e) {
+    $conn->rollback();
+    echo "Error deleting item: " . $e->getMessage();
+  }
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
-<?php
-include 'includes/head.php';
-?>
+<?php include 'includes/head.php'; ?>
 
 <body>
-  <?php
-  include 'includes/navbar.php';
-  ?>
+  <?php include 'includes/navbar.php'; ?>
 
   <section>
     <div class="container">
       <h2 class="title is-3">Your Shopping Cart</h2>
-      <div class="cards-container">
-        <?php foreach ($products as $product) : ?>
-          <div class="card mb-4">
-            <div class="card-content">
-              <img src="assets/images/<?= $product['image'] ?>" alt="<?= $product['name'] ?>" />
-              <h1 class="title is-5"><?= $product['name'] ?> </h1>
-              <div>
-                <span class="category-pill"><?= $product['category'] ?></span>
-                <span class="subcategory-pill"><?= $product['subcategory'] ?></span>
-              </div>
-              <p>
-                <?= $product['description'] ?>
-              </p>
-              <p>Price: $<?= $product['price'] ?></p>
-              <div>
-                <a class="button is-info" href="<?= BASE_URL ?>product?pid=<?= htmlspecialchars($product['pid']) ?>">View Details</a>
-                <button class="button is-danger"><i class="fa-solid fa-trash"></i> Delete</button>
-              </div>
-            </div>
+      <?php foreach ($products as $product) : ?>
+        <div class="shopping-cart-item">
+          <div class="shopping-cart-content">
+            <img src="assets/images/<?= $product['image'] ?>" alt="<?= $product['name'] ?>" />
+            <h1><?= $product['name'] ?></h1>
+            <p>Price: $<?= $product['price'] ?></p>
           </div>
-        <?php endforeach; ?>
-      </div>
+          <div>
+            <form action="" method="POST">
+              <input type="hidden" name="sid" value="<?= $product['sid'] ?>">
+              <button type="submit" name="delete" class="delete-button is-danger">
+                <i class="fa-solid fa-circle-xmark fa-2xl" style="color: #c0382b;"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      <?php endforeach; ?>
     </div>
   </section>
   <script src="assets/js/index.js"></script>

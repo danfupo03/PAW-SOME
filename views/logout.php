@@ -1,9 +1,18 @@
+<?php
+session_start();
+
+if (isset($_SESSION['user_id'])) {
+  session_unset();
+  session_destroy();
+  header("Location: logout");
+  exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
-<?php
-include 'includes/head.php';
-?>
+<?php include 'includes/head.php'; ?>
 
 <body class="body">
   <div class="mt-3">
@@ -23,8 +32,8 @@ include 'includes/head.php';
           <figcaption>We hope to see you again soon!</figcaption>
         </figure>
         <div class="mt-5 mb-5">
-          <a class="button is-secondary" href="<?= BASE_URL ?>login">Login Page</a>
-          <a class="button is-primary" href="<?= BASE_URL ?>">Home Page</a>
+          <a class="button is-secondary" href="login">Login Page</a>
+          <a class="button is-primary" href="">Home Page</a>
         </div>
       </div>
     </div>

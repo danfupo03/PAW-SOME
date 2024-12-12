@@ -1,3 +1,31 @@
+<?php
+session_start();
+require 'db.php';
+
+$error_message = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+
+  $stmt = $conn->prepare('SELECT * FROM users WHERE username = ?');
+  $stmt->bind_param('s', $username);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  $user = $result->fetch_assoc();
+
+  if ($user && password_verify($password, $user['password'])) {
+    $_SESSION['user_id'] = $user['uid'];
+    $_SESSION['username'] = $user['username'];
+
+    header('Location: /PAW-SOME/');
+    exit();
+  } else {
+    $error_message = "Invalid username or password.";
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,22 +44,24 @@ include 'includes/head.php';
         <p class="content">
           We're glad you're here! Please log in to continue.
         </p>
-        <form action="<?= BASE_URL ?>" method="GET">
+        <form action="" method="POST">
           <label for="username">Username</label>
-          <input type="text" placeholder="username" />
+          <input type="text" placeholder="username" name="username" required />
           <label for="password">Password</label>
-          <input type="password" placeholder="password" />
+          <input type="password" placeholder="password" name="password" required />
           <button class="button is-secondary" type="submit">Login</button>
         </form>
+        <?php if (!empty($error_message)): ?>
+          <p class="content"><small><?= $error_message ?></small></p>
+        <?php endif; ?>
         <div class="mb-3">
           <h1 class="title is-5">Not an account yet?</h1>
-          <a class="button is-info" href="<?= BASE_URL ?>register">Register</a>
-          <a class="button is-danger" href="<?= BASE_URL ?>">Back to Home</a>
+          <a class="button is-info" href="register">Register</a>
+          <a class="button is-danger" href="">Back to Home</a>
         </div>
       </div>
     </div>
   </section>
-  <script src="assets/js/login.js"></script>
 </body>
 
 </html>
