@@ -1,0 +1,166 @@
+[
+  {
+    "pid": 1,
+    "name": "KONG Plush Teddy Bear Dog Toy",
+    "description": "Soft, durable, and bear toy with a replaceable squeaker for endless fun.",
+    "features": ["Soft and cuddly", "Durable plush", "Replaceable squeaker"],
+    "image": "kongBear.png",
+    "category": "Toys",
+    "subcategory": "Stuffed Animals",
+    "price": 7.99
+  },
+  {
+    "pid": 2,
+    "name": "Frisco Plush Squeaking Squirrel Dog Toy",
+    "description": "Ultra-soft plush with squeakers to keep your dog engaged during playtime.",
+    "features": [
+      "Ultra-soft plush material",
+      "Built-in squeakers",
+      "Perfect for active play"
+    ],
+    "image": "friscoSquirrel.png",
+    "category": "Toys",
+    "subcategory": "Stuffed Animals",
+    "price": 6.99
+  },
+  {
+    "pid": 3,
+    "name": "Mr Mittens The Cat Plush Cat Toy",
+    "description": "Super soft, with cute details for your cat to have a cuddly friend to play with.",
+    "features": [
+      "Soft and plush texture",
+      "Perfect for cuddling",
+      "Adorable cat-friendly design"
+    ],
+    "image": "gato.png",
+    "category": "Toys",
+    "subcategory": "Stuffed Animals",
+    "price": 9.99
+  },
+  {
+    "pid": 4,
+    "name": "Terry The Platypus Dog Toy",
+    "description": "Australian semi-aquatic mammalian agent Doobie, doobie, Doo-bah! It's Terry the platypus!",
+    "features": [
+      "Unique and fun design",
+      "Soft plush material",
+      "Ideal for imaginative play"
+    ],
+    "image": "perrybg.png",
+    "category": "Toys",
+    "subcategory": "Stuffed Animals",
+    "price": 8.99
+  },
+  {
+    "pid": 5,
+    "name": "Benebone Wishbone Durable Dog Chew Toy",
+    "description": "Real bacon flavor with an ergonomic design for hours of enjoyable chewing.",
+    "features": [
+      "Real bacon flavor",
+      "Ergonomic wishbone shape",
+      "Durable material for aggressive chewers"
+    ],
+    "image": "benebone.png",
+    "category": "Toys",
+    "subcategory": "Chewables",
+    "price": 12.99
+  },
+  {
+    "pid": 6,
+    "name": "Nylabone Power Chew Dog Toy",
+    "description": "Designed for aggressive chewers, flavored with chicken and made for long-lasting play.",
+    "features": [
+      "Designed for aggressive chewers",
+      "Chicken flavor",
+      "Long-lasting durability"
+    ],
+    "image": "nylabone.png",
+    "category": "Toys",
+    "subcategory": "Chewables",
+    "price": 9.99
+  },
+  {
+    "pid": 7,
+    "name": "Little Piece of Pie Chew Dog Toy",
+    "description": "To calm your dog's hunger, designed with a squeaker inside for hours of fun.",
+    "features": [
+      "Fun pie-shaped design",
+      "Built-in squeaker",
+      "Great for interactive play"
+    ],
+    "image": "pie.png",
+    "category": "Toys",
+    "subcategory": "Chewables",
+    "price": 6.99
+  },
+  {
+    "pid": 8,
+    "name": "Rolling Squeaky Chew Dog Toy",
+    "description": "Excellent for heavy duty use for the toughest chewers. Can be rolled for more fun!",
+    "features": [
+      "Squeaky and interactive",
+      "Heavy-duty material",
+      "Rollable for added fun"
+    ],
+    "image": "sqtoy.png",
+    "category": "Toys",
+    "subcategory": "Chewables",
+    "price": 10.99
+  },
+  {
+    "pid": 9,
+    "name": "Pedigree Adult Dry Dog Food",
+    "description": "Complete and balanced nutrition for adult dogs, with real chicken and vegetables.",
+    "features": [
+      "Complete and balanced nutrition",
+      "Made with real chicken",
+      "Enhanced with vegetables"
+    ],
+    "image": "pedigree.png",
+    "category": "Food",
+    "subcategory": "Dog Food",
+    "price": 19.99
+  },
+  {
+    "pid": 10,
+    "name": "Whiskas Adult Dry Cat Food",
+    "description": "Complete and balanced nutrition for adult cats, with real salmon and vegetables.",
+    "features": [
+      "Rich in salmon flavor",
+      "Balanced nutrition for adult cats",
+      "Made with real vegetables"
+    ],
+    "image": "whiskas.png",
+    "category": "Food",
+    "subcategory": "Cat Food",
+    "price": 14.99
+  },
+  {
+    "pid": 11,
+    "name": "Shampoo for Dogs",
+    "description": "Gentle and effective shampoo for dogs, with aloe vera and oatmeal for a shiny coat.",
+    "features": [
+      "Contains aloe vera and oatmeal",
+      "Gentle on dog's skin",
+      "Enhances coat shine"
+    ],
+    "image": "fleaShampoo.png",
+    "category": "Hygiene",
+    "subcategory": "Shampoo",
+    "price": 8.99
+  },
+  {
+    "pid": 12,
+    "name": "Brush for Cats",
+    "description": "Soft bristles for a gentle grooming experience, with a comfortable handle for you.",
+    "features": [
+      "Soft bristles for gentle grooming",
+      "Ergonomic handle design",
+      "Perfect for reducing shedding"
+    ],
+    "image": "slickerBrush.png",
+    "category": "Hygiene",
+    "subcategory": "Brush",
+    "price": 5.99
+  }
+]
