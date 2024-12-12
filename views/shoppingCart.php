@@ -4,13 +4,13 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 session_start();
+require 'db.php';
 
 if (!isset($_SESSION['user_id'])) {
   header('Location: login');
   exit();
 }
 
-require 'db.php';
 $uid = $_SESSION['user_id'];
 
 $stmt = $conn->prepare("
@@ -63,23 +63,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <p><?= $product['name'] ?></p>
             <div>
               <label for="quantity">Quantity:</label>
-              <input type="number" name="quantity" value="1" min="1" class="input">
+              <input type="number" name="quantity" value="<?= $product['quantity'] ?>" min="1" data-price="<?= $product['price'] ?>" class="quantity-input">
             </div>
-            <p>Price: $<?= $product['price'] ?></p>
+            <p>Price: $<span class="total-price"><?= $product['price'] * $product['quantity'] ?></span></p>
           </div>
-          <div>
-            <form action="" method="POST">
-              <input type="hidden" name="sid" value="<?= $product['sid'] ?>">
-              <button type="submit" name="delete" class="delete-button is-danger">
-                <i class="fa-solid fa-circle-xmark fa-2xl" style="color: #c0382b;"></i>
-              </button>
-            </form>
-          </div>
+          <form action="" method="POST">
+            <input type="hidden" name="sid" value="<?= $product['sid'] ?>">
+            <button type="submit" name="delete" class="delete-button is-danger">
+              <i class="fa-solid fa-circle-xmark fa-2xl" style="color: #c0382b;"></i>
+            </button>
+          </form>
         </div>
       <?php endforeach; ?>
     </div>
+    <div class="container">
+      <hr>
+      <h2 class="title is-3">Total Price</h2>
+      <p class="content">
+        <span class="total-price">$0.00</span>
+      </p>
+      <button class="button is-primary" type="submit">
+        <i class="fa-solid fa-cart-arrow-down"></i>
+        Checkout
+      </button>
+    </div>
   </section>
-  <script src="assets/js/index.js"></script>
 </body>
+<script src="assets/js/cartPrice.js"></script>
 
 </html>
