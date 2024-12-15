@@ -24,6 +24,12 @@ $product = $result->fetch_assoc();
 $uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+  if (!$uid) {
+    header('Location: login');
+    exit();
+  }
+
   $userId = $_POST['userId'];
   $productId = $_POST['productId'];
   $quantity = $_POST['quantity'];
