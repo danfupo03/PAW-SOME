@@ -1,3 +1,18 @@
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+require 'db.php';
+$uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+
+$stmt = $conn->prepare("SELECT r.role FROM users u JOIN user_roles ur ON u.uid = ur.uid JOIN roles r ON ur.rid = r.rid WHERE u.uid = ?");
+$stmt->bind_param("i", $uid);
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
+
+?>
+
 <nav class="navbar">
     <div class="navbar-start">
         <div class="navbar-brand">
@@ -12,16 +27,19 @@
             </svg>
         </div>
         <a class="button is-primary" href=""><i class="fa-solid fa-house"></i> Home</a>
+        <?php if (isset($_SESSION['user_id']) && $user["role"] == 'admin'): ?>
+            <a class="button is-primary" href="users"><i class="fa-solid fa-users"></i> Users</a>
+        <?php endif; ?>
     </div>
+
     <div class="buttons">
-        <!-- Not logged in -->
-        <a class="button is-secondary" href="login"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
-        <!-- Logged in -->
-        <a class="button is-secondary" href="customer"><i class="fa-solid fa-user"></i></a>
-        <a class="button is-info" href="shoppingCart"><i class="fa-solid fa-cart-shopping"></i></a>
-        <a class="button is-danger" href="logout">
-            <i class="fa-solid fa-right-from-bracket"></i> Logout
-        </a>
+        <?php if (!isset($_SESSION['user_id'])): ?>
+            <a class="button is-secondary" href="login"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+        <?php else: ?>
+            <a class="button is-secondary" href="customer"><i class="fa-solid fa-user"></i></a>
+            <a class="button is-info" href="shoppingCart"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a class="button is-danger" href="logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+        <?php endif; ?>
         <a class="button is-dark ml-1" onclick="darkMode()" id="dark-mode"><i class="fa-solid fa-moon"></i></a>
     </div>
 </nav>
