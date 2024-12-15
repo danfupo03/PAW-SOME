@@ -13,6 +13,7 @@
   --text-color: #333;
   --title-color: #000000;
   --background-color: #f9f9f9;
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 body {
@@ -66,7 +67,8 @@ small {
   --info: #2674a1;
   --text-color: #f9f9f9;
   --title-color: #f9f9f9;
-  --background-color: #333;
+  --background-color: #212121;
+  --box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
 }
 
 /* Titles */
@@ -290,7 +292,7 @@ small {
 .card {
   width: 100%;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
   height: 100%;
 }
 
@@ -348,7 +350,7 @@ small {
 .contact-card {
   width: 300px;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--box-shadow);
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -533,7 +535,7 @@ small {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
   height: 7.5em;
   margin: 20px 0;
   padding: 20px;
@@ -559,5 +561,5 @@ small {
   gap: 10px;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
 }

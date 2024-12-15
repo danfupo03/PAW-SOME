@@ -40,6 +40,6 @@ $user = $result->fetch_assoc();
             <a class="button is-info" href="shoppingCart"><i class="fa-solid fa-cart-shopping"></i></a>
             <a class="button is-danger" href="logout"><i class="fa-solid fa-right-from-bracket"></i></a>
         <?php endif; ?>
-        <a class="button is-dark ml-1" onclick="darkMode()" id="dark-mode"><i class="fa-solid fa-moon"></i></a>
+        <a class="button is-dark" onclick="darkMode()" id="dark-mode"><i class="fa-solid fa-moon"></i></a>
     </div>
 </nav>

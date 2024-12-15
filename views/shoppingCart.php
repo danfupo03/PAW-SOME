@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="shopping-cart-item">
           <div class="shopping-cart-content">
             <img src="assets/images/<?= $product['image'] ?>" alt="<?= $product['name'] ?>" />
-            <h1><?= $product['name'] ?></h1>
+            <h1 class="title is-4"><?= $product['name'] ?></h1>
             <p>Price: $<?= $product['price'] ?></p>
           </div>
           <div>
