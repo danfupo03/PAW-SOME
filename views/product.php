@@ -37,9 +37,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $conn->begin_transaction();
 
   try {
-    $stmt = $conn->prepare('INSERT INTO shopping_cart (uid, pid, quantity) VALUES (?, ?, ?)');
-    $stmt->bind_param('iii', $userId, $productId, $quantity);
-    $stmt->execute();
+    $checkStmt = $conn->prepare('SELECT quantity FROM shopping_cart WHERE uid = ? AND pid = ?');
+    $checkStmt->bind_param('ii', $userId, $productId);
+    $checkStmt->execute();
+    $checkResult = $checkStmt->get_result();
+
+    if ($checkResult->num_rows > 0) {
+      $row = $checkResult->fetch_assoc();
+      $newQuantity = $row['quantity'] + $quantity;
+
+      $updateStmt = $conn->prepare('UPDATE shopping_cart SET quantity = ? WHERE uid = ? AND pid = ?');
+      $updateStmt->bind_param('iii', $newQuantity, $userId, $productId);
+      $updateStmt->execute();
+    } else {
+      $insertStmt = $conn->prepare('INSERT INTO shopping_cart (uid, pid, quantity) VALUES (?, ?, ?)');
+      $insertStmt->bind_param('iii', $userId, $productId, $quantity);
+      $insertStmt->execute();
+    }
 
     $conn->commit();
 
@@ -49,7 +63,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $conn->rollback();
     echo "Error adding to cart: " . $e->getMessage();
   }
-  $conn->begin_transaction();
 }
 
 ?>

@@ -560,6 +560,11 @@ small {
   background-color: var(--background-color);
 }
 
+.total-shop {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
 /* Users */
 .users {
   display: grid;

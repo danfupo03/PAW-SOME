@@ -14,7 +14,7 @@ if (!isset($_SESSION['user_id'])) {
 $uid = $_SESSION['user_id'];
 
 $stmt = $conn->prepare("
-    SELECT sc.sid, sc.quantity, p.price, p.name, p.description, p.image
+    SELECT sc.sid, sc.quantity, p.pid, p.price, p.name, p.description, p.image
     FROM shopping_cart sc
     JOIN products p ON sc.pid = p.pid
     WHERE sc.uid = ?
@@ -25,22 +25,57 @@ $result = $stmt->get_result();
 $products = $result->fetch_all(MYSQLI_ASSOC);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $sid = $_POST['sid'];
+  if (isset($_POST['checkout'])) {
+    $conn->begin_transaction();
+    try {
+      $total = 0;
+      foreach ($products as $product) {
+        $sub_total += $product['price'] * $product['quantity'];
+      }
+      $total = $sub_total + ($sub_total * 0.19);
 
-  $conn->begin_transaction();
+      $stmt = $conn->prepare('INSERT INTO orders (uid, total, order_date, state) VALUES (?, ?, NOW(), "active")');
+      $stmt->bind_param('id', $uid, $total);
+      $stmt->execute();
 
-  try {
-    $stmt = $conn->prepare('DELETE FROM shopping_cart WHERE sid = ?');
-    $stmt->bind_param('i', $sid);
-    $stmt->execute();
+      $oid = $conn->insert_id;
 
-    $conn->commit();
+      $stmt = $conn->prepare('INSERT INTO order_items (oid, pid, quantity) VALUES (?, ?, ?)');
+      foreach ($products as $product) {
+        $stmt->bind_param('iii', $oid, $product['pid'], $product['quantity']);
+        $stmt->execute();
+      }
 
-    header('Location: shoppingCart');
-    exit();
-  } catch (Exception $e) {
-    $conn->rollback();
-    echo "Error deleting item: " . $e->getMessage();
+      $stmt = $conn->prepare('DELETE FROM shopping_cart WHERE uid = ?');
+      $stmt->bind_param('i', $uid);
+      $stmt->execute();
+
+      $conn->commit();
+
+      header('Location: shoppingCart');
+      exit();
+    } catch (Exception $e) {
+      $conn->rollback();
+      echo "Error during checkout: " . $e->getMessage();
+    }
+  } elseif (isset($_POST['delete'])) {
+    $sid = $_POST['sid'];
+
+    $conn->begin_transaction();
+
+    try {
+      $stmt = $conn->prepare('DELETE FROM shopping_cart WHERE sid = ?');
+      $stmt->bind_param('i', $sid);
+      $stmt->execute();
+
+      $conn->commit();
+
+      header('Location: shoppingCart');
+      exit();
+    } catch (Exception $e) {
+      $conn->rollback();
+      echo "Error deleting item: " . $e->getMessage();
+    }
   }
 }
 ?>
@@ -77,15 +112,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <?php endforeach; ?>
     </div>
     <div class="container">
-      <hr>
-      <h2 class="title is-3">Total Price</h2>
-      <p class="content">
-        <span class="total-price">$0.00</span>
-      </p>
-      <button class="button is-primary" type="submit">
-        <i class="fa-solid fa-cart-arrow-down"></i>
-        Checkout
-      </button>
+      <div class="content">
+        <hr>
+        <h2 class="title is-3">Cart Summary</h2>
+        <p>Subtotal: $<span id="subtotal">0.00</span></p>
+        <p>Taxes (19%): $<span id="taxes">0.00</span></p>
+        <p class="total-shop">Total Price: $<span id="grand-total">0.00</span></p>
+        <form action="" method="POST">
+          <button class="button is-primary" type="submit" name="checkout">
+            <i class="fa-solid fa-cart-arrow-down"></i>
+            Checkout
+          </button>
+        </form>
+        <br>
+      </div>
     </div>
   </section>
 </body>
