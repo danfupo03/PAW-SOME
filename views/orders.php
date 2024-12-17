@@ -9,6 +9,10 @@ $stmt = $conn->prepare("SELECT * FROM orders");
 $stmt->execute();
 $result = $stmt->get_result();
 $orders = $result->fetch_all(MYSQLI_ASSOC);
+
+// TODO
+// Admin can view all orders
+// User can view their orders
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +52,7 @@ include 'includes/head.php';
                         </div>
                         <p>Total: $<?= $order['total'] ?></p>
                         <p style="color: gray;"><?= $order['order_date'] ?></p>
-                        <a href="order?id=<?= $order['oid'] ?>" class="button is-primary mt-2">View</a>
+                        <a href="order?oid=<?= $order['oid'] ?>" class="button is-primary mt-2">View</a>
                     </div>
                 <?php endforeach; ?>
             </div>
