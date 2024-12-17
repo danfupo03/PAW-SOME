@@ -29,6 +29,7 @@ $user = $result->fetch_assoc();
         <a class="button is-primary" href=""><i class="fa-solid fa-house"></i> Home</a>
         <?php if (isset($_SESSION['user_id']) && $user["role"] == 'admin'): ?>
             <a class="button is-primary" href="users"><i class="fa-solid fa-users"></i> Users</a>
+            <a class="button is-primary" href="orders"><i class="fa-solid fa-box"></i> Orders</a>
         <?php endif; ?>
     </div>
 

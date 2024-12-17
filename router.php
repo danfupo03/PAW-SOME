@@ -12,6 +12,7 @@ $routes = [
     '/comparison' => __DIR__ . '/views/comparison.php',
     '/shoppingCart' => __DIR__ . '/views/shoppingCart.php',
     '/users' => __DIR__ . '/views/users.php',
+    '/orders' => __DIR__ . '/views/orders.php',
     '/404' => __DIR__ . '/views/404.php',
 ];
 
