@@ -26,6 +26,10 @@ $products = $result->fetch_all(MYSQLI_ASSOC);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if (isset($_POST['checkout'])) {
+    if (count($products) === 0) {
+      header('Location: shoppingCart');
+      exit();
+    }
     $conn->begin_transaction();
     try {
       $total = 0;
@@ -34,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       }
       $total = $sub_total + ($sub_total * 0.19);
 
-      $stmt = $conn->prepare('INSERT INTO orders (uid, total, order_date, state) VALUES (?, ?, NOW(), "active")');
+      $stmt = $conn->prepare('INSERT INTO orders (uid, total, order_date, state) VALUES (?, ?, NOW(), "new")');
       $stmt->bind_param('id', $uid, $total);
       $stmt->execute();
 
