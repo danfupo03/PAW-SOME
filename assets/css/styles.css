@@ -540,6 +540,12 @@ small {
   border-radius: 10px;
 }
 
+.shopping-cart-content div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .shopping-cart-content > * {
   flex: 0 0 15%;
 }
