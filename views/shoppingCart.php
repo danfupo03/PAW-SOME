@@ -25,14 +25,44 @@ $result = $stmt->get_result();
 $products = $result->fetch_all(MYSQLI_ASSOC);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  if (isset($_POST['update']) && isset($_POST['quantity']) && isset($_POST['sid'])) {
+    $sid = $_POST['sid'];
+    $quantity = (int)$_POST['quantity'];
+
+    $stmt = $conn->prepare('UPDATE shopping_cart SET quantity = ? WHERE sid = ?');
+    $stmt->bind_param('ii', $quantity, $sid);
+    $stmt->execute();
+    header('Location: shoppingCart');
+    exit();
+  }
+
+  if (isset($_POST['delete']) && isset($_POST['sid'])) {
+    $sid = $_POST['sid'];
+
+    $conn->begin_transaction();
+    try {
+      $stmt = $conn->prepare('DELETE FROM shopping_cart WHERE sid = ?');
+      $stmt->bind_param('i', $sid);
+      $stmt->execute();
+
+      $conn->commit();
+      header('Location: shoppingCart');
+      exit();
+    } catch (Exception $e) {
+      $conn->rollback();
+      echo "Error deleting item: " . $e->getMessage();
+    }
+  }
+
   if (isset($_POST['checkout'])) {
     if (count($products) === 0) {
       header('Location: shoppingCart');
       exit();
     }
+
     $conn->begin_transaction();
     try {
-      $total = 0;
+      $sub_total = 0;
       foreach ($products as $product) {
         $sub_total += $product['price'] * $product['quantity'];
       }
@@ -55,30 +85,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $stmt->execute();
 
       $conn->commit();
-
       header('Location: shoppingCart');
       exit();
     } catch (Exception $e) {
       $conn->rollback();
       echo "Error during checkout: " . $e->getMessage();
-    }
-  } elseif (isset($_POST['delete'])) {
-    $sid = $_POST['sid'];
-
-    $conn->begin_transaction();
-
-    try {
-      $stmt = $conn->prepare('DELETE FROM shopping_cart WHERE sid = ?');
-      $stmt->bind_param('i', $sid);
-      $stmt->execute();
-
-      $conn->commit();
-
-      header('Location: shoppingCart');
-      exit();
-    } catch (Exception $e) {
-      $conn->rollback();
-      echo "Error deleting item: " . $e->getMessage();
     }
   }
 }
@@ -99,11 +110,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="shopping-cart-item">
           <div class="shopping-cart-content">
             <img src="assets/images/<?= $product['image'] ?>" alt="<?= $product['name'] ?>" />
-            <p class="title is-4"><?= $product['name'] ?></p>
-            <div>
+            <p><?= $product['name'] ?></p>
+            <form action="" method="POST">
               <label for="quantity">Quantity:</label>
-              <input type="number" name="quantity" value="<?= $product['quantity'] ?>" min="1" data-price="<?= $product['price'] ?>" class="quantity-input">
-            </div>
+              <div>
+                <input type="number" name="quantity" value="<?= $product['quantity'] ?>" min="1" data-price="<?= $product['price'] ?>" class="quantity-input">
+                <input type="hidden" name="sid" value="<?= $product['sid'] ?>">
+                <button class=" button is-info ml-2" type="submit" name="update">
+                  Update
+                </button>
+              </div>
+            </form>
             <p>Price: $<span class="total-price"><?= $product['price'] * $product['quantity'] ?></span></p>
           </div>
           <form action="" method="POST">
