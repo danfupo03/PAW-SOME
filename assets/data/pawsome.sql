@@ -40,6 +40,7 @@ CREATE TABLE users (
 );
 
 INSERT INTO `users` (`uid`, `username`, `password`, `state`, `number_of_orders`) VALUES
+(1, 'Danfupo03', '$2y$10$p.M58C4/5ndBjNwi1H35xOImnO7yvTpvFAThwPQr449aXffF8nUjC', 'active', 0),
 (2, 'FaustinPompin', '$2y$10$XKCePBYrjzOtKascS35p/eQdEXDuQZO7YjGkq3uRhK6Sg50Cmzf0e', 'active', 0);
 
 CREATE TABLE shopping_cart (
@@ -82,6 +83,7 @@ CREATE TABLE user_roles (
 );
 
 INSERT INTO user_roles (uid, rid) VALUES
+(1, 1),
 (2, 1);
 
 CREATE TABLE orders (
@@ -93,9 +95,6 @@ CREATE TABLE orders (
     FOREIGN KEY (uid) REFERENCES users(uid)
 );
 
--- INSERT INTO orders (oid, uid, total, order_date, state) VALUES
--- (1, 2, 19.99, '2023-01-01 00:00:00', 'new');
-
 CREATE TABLE order_items (
     oiid INT PRIMARY KEY AUTO_INCREMENT,
     oid INT,
@@ -104,9 +103,3 @@ CREATE TABLE order_items (
     FOREIGN KEY (oid) REFERENCES orders(oid),
     FOREIGN KEY (pid) REFERENCES products(pid)
 );
-
--- INSERT INTO order_items (oid, sid, quantity) VALUES
--- (1, 1, 2),
--- (1, 2, 1),
--- (1, 3, 1),
--- (1, 4, 1);
