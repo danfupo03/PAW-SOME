@@ -595,3 +595,30 @@ small {
   border-radius: 8px;
   box-shadow: var(--box-shadow);
 }
+
+/* Orders */
+.orders {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.order {
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+}
+
+.order div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order p {
+  margin: 0;
+}
+
+.order a {
+  display: inline-block;
+}
