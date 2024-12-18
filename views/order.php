@@ -41,18 +41,15 @@ $user = $result->fetch_assoc();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $state = $_POST['state'];
+    $message = $_POST['message'];
 
-    $stmt = $conn->prepare("UPDATE orders SET state = ? WHERE oid = ?");
-    $stmt->bind_param("si", $state, $oid);
+    $stmt = $conn->prepare("UPDATE orders SET state = ?, message = ? WHERE oid = ?");
+    $stmt->bind_param("ssi", $state, $message, $oid);
     $stmt->execute();
 
     header('Location: orders');
     exit();
 }
-
-// TODO
-// View the order status
-// Admin can change the order status
 ?>
 
 <!DOCTYPE html>
@@ -85,6 +82,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php if ($user['role'] == 'admin') : ?>
                     <h1 class="title is-5" style="color: #3498db;">Owner: <?= $products[0]['username'] ?></h1>
                 <?php endif; ?>
+                <?php if ($order['state'] == 'rejected'): ?>
+                    <p class="content is-danger">Your order was rejected reason: <?= $order['message'] ?></p>
+                <?php endif; ?>
                 <?php foreach ($products as $product) : ?>
                     <div class="shopping-cart-content">
                         <img src="assets/images/<?= $product['image'] ?>" alt="<?= $product['name'] ?>" />
@@ -102,16 +102,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <p>Subtotal: $<span><?= $total ?></span></p>
                     <p>Taxes (19%): $<span><?= number_format($total * 0.19, 2) ?></span></p>
                     <p class="total-shop">Total Price: $<span><?= number_format($total + ($total * 0.19), 2) ?></span></p>
+
                 </div>
                 <?php if ($user['role'] == 'admin'): ?>
                     <form action="" method="POST">
-                        <select name="state" id="state">
-                            <option value="new" <?= ($order['state'] == 'new') ? 'selected' : '' ?>>New</option>
-                            <option value="in_progress" <?= ($order['state'] == 'in_progress') ? 'selected' : '' ?>>In Progress</option>
-                            <option value="rejected" <?= ($order['state'] == 'rejected') ? 'selected' : '' ?>>Rejected</option>
-                            <option value="completed" <?= ($order['state'] == 'completed') ? 'selected' : '' ?>>Completed</option>
-                        </select>
-                        <button type="submit" class="button is-primary ml-2">Change Status</button>
+                        <div class="order-form">
+                            <select name="state" id="state" onchange="toggleMessageInput()">
+                                <option value="new" <?= ($order['state'] == 'new') ? 'selected' : '' ?>>New</option>
+                                <option value="in_progress" <?= ($order['state'] == 'in_progress') ? 'selected' : '' ?>>In Progress</option>
+                                <option value="rejected" <?= ($order['state'] == 'rejected') ? 'selected' : '' ?>>Rejected</option>
+                                <option value="completed" <?= ($order['state'] == 'completed') ? 'selected' : '' ?>>Completed</option>
+                            </select>
+                            <input type="text" id="message-order" name="message" placeholder="Message" style="display: none;">
+                            <button type="submit" class="button is-primary ml-2">Change Status</button>
+                        </div>
                     </form>
                 <?php endif; ?>
             </div>
@@ -119,5 +123,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </section>
 </body>
 <script src="assets/js/darkMode.js"></script>
+<script src="assets/js/order.js"></script>
 
 </html>

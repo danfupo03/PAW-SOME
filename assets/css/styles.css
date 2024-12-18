@@ -119,6 +119,10 @@ small {
   color: var(--primary);
 }
 
+.is-danger {
+  color: var(--danger);
+}
+
 /* Navbar */
 .navbar {
   display: flex;
@@ -660,6 +664,11 @@ small {
   align-items: center;
 }
 
+.order-form {
+  display: flex;
+  gap: 10px;
+}
+
 #state {
   font-size: 1rem;
   padding: 0.5rem 1rem;
@@ -667,6 +676,15 @@ small {
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+}
+
+#message-order {
+  padding: 10px;
+  border: 1px solid #e4e4e4;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  transition: all 0.2s ease-in-out;
+  background-color: var(--background-color);
 }
 
 @media (max-width: 768px) {
