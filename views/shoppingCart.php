@@ -40,6 +40,14 @@ if ($user['number_of_orders'] >= 10 && $user['number_of_orders'] < 20) {
   $discountRate = 0.20;
 }
 
+$stmt = $conn->prepare("SELECT state FROM users WHERE uid = ?");
+$stmt->bind_param("i", $uid);
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
+
+$state = $user['state'];
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if (isset($_POST['update']) && isset($_POST['quantity']) && isset($_POST['sid'])) {
     $sid = $_POST['sid'];
@@ -166,13 +174,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php endif; ?>
         <p>Taxes (19%): $<span id="taxes">0.00</span></p>
         <p class="total-shop">Total Price: $<span id="grand-total">0.00</span></p>
-        <form action="" method="POST">
-          <button class="button is-primary" type="submit" name="checkout">
-            <i class="fa-solid fa-cart-arrow-down"></i>
-            Checkout
-          </button>
-        </form>
-        <br>
+        <?php if ($state == "blocked"): ?>
+          <p class="content is-danger">Your account is blocked by the administrator.</p>
+        <?php else: ?>
+          <form action="" method="POST">
+            <button class="button is-primary" type="submit" name="checkout">
+              <i class="fa-solid fa-cart-arrow-down"></i>
+              Checkout
+            </button>
+          </form>
+        <?php endif; ?>
       </div>
     </div>
   </section>
