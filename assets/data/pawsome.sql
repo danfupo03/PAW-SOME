@@ -52,20 +52,6 @@ CREATE TABLE shopping_cart (
     FOREIGN KEY (pid) REFERENCES products(pid)
 );
 
--- INSERT INTO shopping_cart (sid, uid, pid, quantity) VALUES
--- (1, 2, 1, 2),
--- (2, 2, 2, 1),
--- (3, 2, 3, 1),
--- (4, 2, 4, 1),
--- (5, 2, 5, 1),
--- (6, 2, 6, 1),
--- (7, 2, 7, 1),
--- (8, 2, 8, 1),
--- (9, 2, 9, 1),
--- (10, 2, 10, 1),
--- (11, 2, 11, 1),
--- (12, 2, 12, 1);
-
 CREATE TABLE roles (
     rid INT PRIMARY KEY AUTO_INCREMENT,
     role VARCHAR(50)
@@ -92,6 +78,7 @@ CREATE TABLE orders (
     total DECIMAL(10, 2),
     order_date TIMESTAMP,
     state enum('new', 'in_progress', 'rejected', 'completed'),
+    message VARCHAR(255) DEFAULT NULL,
     FOREIGN KEY (uid) REFERENCES users(uid)
 );
 
