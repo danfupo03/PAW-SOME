@@ -24,6 +24,22 @@ $stmt->execute();
 $result = $stmt->get_result();
 $products = $result->fetch_all(MYSQLI_ASSOC);
 
+$stmt = $conn->prepare("SELECT number_of_orders FROM users WHERE uid = ?");
+$stmt->bind_param("i", $uid);
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
+
+$number_of_orders = $user['number_of_orders'];
+
+$discountRate = 0;
+
+if ($user['number_of_orders'] >= 10 && $user['number_of_orders'] < 20) {
+  $discountRate = 0.10;
+} elseif ($user['number_of_orders'] >= 20) {
+  $discountRate = 0.20;
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if (isset($_POST['update']) && isset($_POST['quantity']) && isset($_POST['sid'])) {
     $sid = $_POST['sid'];
@@ -66,7 +82,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       foreach ($products as $product) {
         $sub_total += $product['price'] * $product['quantity'];
       }
-      $total = $sub_total + ($sub_total * 0.19);
+      $taxRate = 0.19;
+      $discount = $sub_total * $discountRate;
+      $sub_total = ($sub_total - $discount);
+      $total = $sub_total + ($sub_total * $taxRate);
 
       $stmt = $conn->prepare('INSERT INTO orders (uid, total, order_date, state) VALUES (?, ?, NOW(), "new")');
       $stmt->bind_param('id', $uid, $total);
@@ -79,6 +98,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bind_param('iii', $oid, $product['pid'], $product['quantity']);
         $stmt->execute();
       }
+
+      $stmt = $conn->prepare('UPDATE users SET number_of_orders = number_of_orders + 1 WHERE uid = ?');
+      $stmt->bind_param('i', $uid);
+      $stmt->execute();
 
       $stmt = $conn->prepare('DELETE FROM shopping_cart WHERE uid = ?');
       $stmt->bind_param('i', $uid);
@@ -136,7 +159,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="content">
         <hr>
         <h2 class="title is-3">Cart Summary</h2>
+        <p>This is your order number <?= $number_of_orders ?>! You get a <span id=discount-rate><?= $discountRate * 100 ?></span>% discount.</p>
         <p>Subtotal: $<span id="subtotal">0.00</span></p>
+        <?php if ($discountRate > 0): ?>
+          <p>Discount <?= ($discountRate * 100) ?>%: $<span id="discount">0.00</span></p>
+        <?php endif; ?>
         <p>Taxes (19%): $<span id="taxes">0.00</span></p>
         <p class="total-shop">Total Price: $<span id="grand-total">0.00</span></p>
         <form action="" method="POST">
