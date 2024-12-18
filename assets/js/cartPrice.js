@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const subtotalElement = document.getElementById("subtotal");
   const taxesElement = document.getElementById("taxes");
   const grandTotalElement = document.getElementById("grand-total");
+  const discountElement = document.getElementById("discount");
+  const discountRate = document.getElementById("discount-rate").textContent;
   const TAX_RATE = 0.19;
 
   const calculateCartTotals = () => {
@@ -10,23 +12,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
     quantityInputs.forEach((input) => {
       const pricePerUnit = parseFloat(input.getAttribute("data-price"));
-      const quantity = parseInt(input.value) || 0;
+      const quantity = parseInt(input.value);
       const totalPrice = (pricePerUnit * quantity).toFixed(2);
-
-      const totalPriceElement = input
-        .closest(".shopping-cart-content")
-        .querySelector(".total-price");
-      totalPriceElement.textContent = totalPrice;
 
       subtotal += parseFloat(totalPrice);
     });
 
-    const taxes = (subtotal * TAX_RATE).toFixed(2);
-    const grandTotal = (subtotal + parseFloat(taxes)).toFixed(2);
+    let taxes = 0;
+    let grandTotal = 0;
+    let discount = 0;
+    let printDiscount = 0;
+    let subtotalAfterDiscount = 0;
+    console.log("discountRate", discountRate);
 
-    subtotalElement.textContent = subtotal.toFixed(2);
-    taxesElement.textContent = taxes;
-    grandTotalElement.textContent = grandTotal;
+    if (discountRate > 0) {
+      discount = subtotal * (discountRate/100);
+      printDiscount = subtotal - discount;
+      subtotalAfterDiscount = subtotal - discount;
+      taxes = (subtotalAfterDiscount * TAX_RATE).toFixed(2);
+      grandTotal = subtotalAfterDiscount + parseFloat(taxes);
+
+      subtotalElement.textContent = subtotal.toFixed(2);
+      discountElement.textContent = printDiscount.toFixed(2);
+      taxesElement.textContent = taxes;
+      grandTotalElement.textContent = grandTotal.toFixed(2);
+    } else {
+      subtotalElement.textContent = subtotal.toFixed(2);
+      taxesElement.textContent = taxes;
+      grandTotalElement.textContent = grandTotal.toFixed(2);
+    }
   };
 
   quantityInputs.forEach((input) => {
