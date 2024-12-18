@@ -11,4 +11,7 @@
     <!-- Stylesheet -->
     <link defer rel="stylesheet" href="assets/css/styles.css" />
     <link defer rel="stylesheet" href="assets/css/variables.css" />
+
+    <!-- JavaScript -->
+    <script src="assets/js/darkMode.js"></script>
 </head>

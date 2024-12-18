@@ -39,6 +39,10 @@ CREATE TABLE users (
     number_of_orders INT DEFAULT 0
 );
 
+INSERT INTO `users` (`uid`, `username`, `password`, `state`, `number_of_orders`) VALUES
+(1, 'Danfupo03', '$2y$10$p.M58C4/5ndBjNwi1H35xOImnO7yvTpvFAThwPQr449aXffF8nUjC', 'active', 0),
+(2, 'FaustinPompin', '$2y$10$XKCePBYrjzOtKascS35p/eQdEXDuQZO7YjGkq3uRhK6Sg50Cmzf0e', 'active', 0);
+
 CREATE TABLE shopping_cart (
     sid INT PRIMARY KEY AUTO_INCREMENT,
     uid INT,
@@ -78,6 +82,10 @@ CREATE TABLE user_roles (
     FOREIGN KEY (rid) REFERENCES roles(rid)
 );
 
+INSERT INTO user_roles (uid, rid) VALUES
+(1, 1),
+(2, 1);
+
 CREATE TABLE orders (
     oid INT PRIMARY KEY AUTO_INCREMENT,
     uid INT,
@@ -85,4 +93,13 @@ CREATE TABLE orders (
     order_date TIMESTAMP,
     state enum('new', 'in_progress', 'rejected', 'completed'),
     FOREIGN KEY (uid) REFERENCES users(uid)
+);
+
+CREATE TABLE order_items (
+    oiid INT PRIMARY KEY AUTO_INCREMENT,
+    oid INT,
+    pid INT,
+    quantity INT,
+    FOREIGN KEY (oid) REFERENCES orders(oid),
+    FOREIGN KEY (pid) REFERENCES products(pid)
 );
