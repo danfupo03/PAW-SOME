@@ -27,8 +27,10 @@ $user = $result->fetch_assoc();
             </svg>
         </div>
         <a class="button is-primary" href=""><i class="fa-solid fa-house"></i> Home</a>
-        <?php if (isset($_SESSION['user_id']) && $user["role"] == 'admin'): ?>
-            <a class="button is-primary" href="users"><i class="fa-solid fa-users"></i> Users</a>
+        <?php if (isset($_SESSION['user_id'])): ?>
+            <?php if ($user["role"] == 'admin'): ?>
+                <a class="button is-primary" href="users"><i class="fa-solid fa-users"></i> Users</a>
+            <?php endif; ?>
             <a class="button is-primary" href="orders"><i class="fa-solid fa-box"></i> Orders</a>
         <?php endif; ?>
     </div>
