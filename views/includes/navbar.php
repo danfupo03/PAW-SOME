@@ -11,6 +11,15 @@ $stmt->execute();
 $result = $stmt->get_result();
 $user = $result->fetch_assoc();
 
+$cart_count = 0;
+if ($uid) {
+    $stmt = $conn->prepare("SELECT SUM(quantity) AS total_items FROM shopping_cart WHERE uid = ?");
+    $stmt->bind_param("i", $uid);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $cart = $result->fetch_assoc();
+    $cart_count = $cart['total_items'] ?? 0;
+}
 ?>
 
 <nav class="navbar">
@@ -27,8 +36,11 @@ $user = $result->fetch_assoc();
             </svg>
         </div>
         <a class="button is-primary" href=""><i class="fa-solid fa-house"></i> Home</a>
-        <?php if (isset($_SESSION['user_id']) && $user["role"] == 'admin'): ?>
-            <a class="button is-primary" href="users"><i class="fa-solid fa-users"></i> Users</a>
+        <?php if (isset($_SESSION['user_id'])): ?>
+            <?php if ($user["role"] == 'admin'): ?>
+                <a class="button is-primary" href="users"><i class="fa-solid fa-users"></i> Users</a>
+            <?php endif; ?>
+            <a class="button is-primary" href="orders"><i class="fa-solid fa-box"></i> Orders</a>
         <?php endif; ?>
     </div>
 
@@ -37,9 +49,14 @@ $user = $result->fetch_assoc();
             <a class="button is-secondary" href="login"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
         <?php else: ?>
             <a class="button is-secondary" href="customer"><i class="fa-solid fa-user"></i></a>
-            <a class="button is-info" href="shoppingCart"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a class="button is-info shopping-cart" href="shoppingCart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <?php if ($cart_count > 0): ?>
+                    <span class="notification-badge"><?= $cart_count ?></span>
+                <?php endif; ?>
+            </a>
             <a class="button is-danger" href="logout"><i class="fa-solid fa-right-from-bracket"></i></a>
         <?php endif; ?>
-        <a class="button is-dark ml-1" onclick="darkMode()" id="dark-mode"><i class="fa-solid fa-moon"></i></a>
+        <a class="button is-dark" onclick="darkMode()" id="dark-mode"><i class="fa-solid fa-moon"></i></a>
     </div>
 </nav>

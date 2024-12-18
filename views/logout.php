@@ -38,7 +38,6 @@ if (isset($_SESSION['user_id'])) {
       </div>
     </div>
   </section>
-  <script src="assets/js/logout.js"></script>
 </body>
 
 </html>
