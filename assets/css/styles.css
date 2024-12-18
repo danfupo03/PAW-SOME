@@ -337,7 +337,7 @@ small {
 /* Pills */
 .pill-success {
   background-color: var(--success);
-  color: var(--title-color);
+  color: white;
   padding: 5px 20px;
   display: inline-block;
   border-radius: 16px;
@@ -345,7 +345,7 @@ small {
 
 .pill-warning {
   background-color: var(--warning);
-  color: var(--title-color);
+  color: white;
   padding: 5px 20px;
   display: inline-block;
   border-radius: 16px;
@@ -353,7 +353,7 @@ small {
 
 .pill-danger {
   background-color: var(--danger);
-  color: var(--title-color);
+  color: white;
   padding: 5px 20px;
   display: inline-block;
   border-radius: 16px;
@@ -361,7 +361,7 @@ small {
 
 .pill-info {
   background-color: var(--info);
-  color: var(--title-color);
+  color: white;
   padding: 5px 20px;
   display: inline-block;
   border-radius: 16px;
@@ -652,6 +652,12 @@ small {
 
 .order a {
   display: inline-block;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 @media (max-width: 768px) {
