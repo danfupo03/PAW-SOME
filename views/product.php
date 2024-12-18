@@ -105,12 +105,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           </form>
         </div>
       </div>
-      <button class="button is-danger" onclick="window.history.back();">
+      <button class="button is-danger" id="go-back" onclick="window.history.back();">
         <i class="fa-solid fa-arrow-left"></i> Go Back
       </button>
     </div>
   </section>
-  <script src="assets/js/product.js"></script>
+  <!-- <script src="assets/js/product.js"></script> -->
 </body>
 
 </html>
