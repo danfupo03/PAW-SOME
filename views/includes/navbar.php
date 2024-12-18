@@ -11,6 +11,15 @@ $stmt->execute();
 $result = $stmt->get_result();
 $user = $result->fetch_assoc();
 
+$cart_count = 0;
+if ($uid) {
+    $stmt = $conn->prepare("SELECT SUM(quantity) AS total_items FROM shopping_cart WHERE uid = ?");
+    $stmt->bind_param("i", $uid);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $cart = $result->fetch_assoc();
+    $cart_count = $cart['total_items'] ?? 0;
+}
 ?>
 
 <nav class="navbar">
@@ -38,7 +47,12 @@ $user = $result->fetch_assoc();
             <a class="button is-secondary" href="login"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
         <?php else: ?>
             <a class="button is-secondary" href="customer"><i class="fa-solid fa-user"></i></a>
-            <a class="button is-info" href="shoppingCart"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a class="button is-info shopping-cart" href="shoppingCart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <?php if ($cart_count > 0): ?>
+                    <span class="notification-badge"><?= $cart_count ?></span>
+                <?php endif; ?>
+            </a>
             <a class="button is-danger" href="logout"><i class="fa-solid fa-right-from-bracket"></i></a>
         <?php endif; ?>
         <a class="button is-dark" onclick="darkMode()" id="dark-mode"><i class="fa-solid fa-moon"></i></a>
