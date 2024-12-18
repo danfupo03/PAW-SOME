@@ -26,7 +26,6 @@ include 'includes/head.php';
       </div>
     </div>
   </section>
-  <script src="assets/js/logout.js"></script>
 </body>
 
 </html>

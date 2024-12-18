@@ -64,22 +64,3 @@ function getTotalPrice(priceWOTax) {
   return parseFloat(totalPrice.toFixed(2));
 }
 
-function darkMode() {
-  const body = document.body;
-  const button = document.getElementById("dark-mode");
-  const icon = document.querySelector("#dark-mode i");
-
-  body.classList.toggle("dark-mode");
-
-  if (body.classList.contains("dark-mode")) {
-    icon.classList.remove("fa-moon");
-    icon.classList.add("fa-sun");
-    button.classList.remove("is-dark");
-    button.classList.add("is-light");
-  } else {
-    icon.classList.remove("fa-sun");
-    icon.classList.add("fa-moon");
-    button.classList.remove("is-light");
-    button.classList.add("is-dark");
-  }
-}

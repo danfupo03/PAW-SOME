@@ -71,7 +71,6 @@ toys or any hygiene products, we have got you covered.";
       </div>
     </div>
   </section>
-  <script src="assets/js/index.js"></script>
 </body>
 
 </html>

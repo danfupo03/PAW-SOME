@@ -58,7 +58,7 @@ include 'includes/head.php';
             </div>
           <?php endforeach; ?>
         </div>
-        <button type="submit" class="button is-primary mt-3">Compare Selected</button>
+        <button type="submit" class="button is-primary mt-3" id="compare-button">Compare Selected</button>
       </form>
     </div>
   </section>
