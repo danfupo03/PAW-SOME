@@ -53,11 +53,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sid = $_POST['sid'];
     $quantity = (int)$_POST['quantity'];
 
-    $stmt = $conn->prepare('UPDATE shopping_cart SET quantity = ? WHERE sid = ?');
-    $stmt->bind_param('ii', $quantity, $sid);
-    $stmt->execute();
-    header('Location: shoppingCart');
-    exit();
+    $conn->begin_transaction();
+    try {
+      $stmt = $conn->prepare('UPDATE shopping_cart SET quantity = ? WHERE sid = ?');
+      $stmt->bind_param('ii', $quantity, $sid);
+      $stmt->execute();
+
+      $conn->commit();
+      header('Location: shoppingCart');
+      exit();
+    } catch (Exception $e) {
+      $conn->rollback();
+      echo "Error updating item: " . $e->getMessage();
+    }
   }
 
   if (isset($_POST['delete']) && isset($_POST['sid'])) {

@@ -18,7 +18,7 @@ if ($uid) {
     $stmt->execute();
     $result = $stmt->get_result();
     $cart = $result->fetch_assoc();
-    $cart_count = $cart['total_items'] ?? 0;
+    $cart_count = $cart['total_items'];
 }
 ?>
 

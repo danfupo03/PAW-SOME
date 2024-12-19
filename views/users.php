@@ -14,15 +14,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $uid = $_POST['user'];
     $state = $_POST['state'];
 
-    if ($state == 'active') {
-        $stmt = $conn->prepare("UPDATE users SET state = 'blocked' WHERE uid = ?");
-    } else {
-        $stmt = $conn->prepare("UPDATE users SET state = 'active' WHERE uid = ?");
-    }
+    $conn->begin_transaction();
 
-    $stmt->bind_param('i', $uid);
-    $stmt->execute();
-    header('Location: users');
+    try {
+        if ($state == 'active') {
+            $stmt = $conn->prepare("UPDATE users SET state = 'blocked' WHERE uid = ?");
+        } else {
+            $stmt = $conn->prepare("UPDATE users SET state = 'active' WHERE uid = ?");
+        }
+        $stmt->bind_param('i', $uid);
+        $stmt->execute();
+        $conn->commit();
+        header('Location: users');
+        exit();
+    } catch (Exception $e) {
+        $conn->rollback();
+        throw $e;
+    }
 }
 ?>
 

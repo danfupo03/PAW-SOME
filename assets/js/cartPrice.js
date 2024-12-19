@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let discount = 0;
     let printDiscount = 0;
     let subtotalAfterDiscount = 0;
-    console.log("discountRate", discountRate);
 
     if (discountRate > 0) {
       discount = subtotal * (discountRate/100);
@@ -37,6 +36,10 @@ document.addEventListener("DOMContentLoaded", () => {
       taxesElement.textContent = taxes;
       grandTotalElement.textContent = grandTotal.toFixed(2);
     } else {
+
+      taxes = (subtotal * TAX_RATE).toFixed(2);
+      grandTotal = subtotal + parseFloat(taxes);
+
       subtotalElement.textContent = subtotal.toFixed(2);
       taxesElement.textContent = taxes;
       grandTotalElement.textContent = grandTotal.toFixed(2);

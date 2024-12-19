@@ -43,12 +43,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $state = $_POST['state'];
     $message = $_POST['message'];
 
-    $stmt = $conn->prepare("UPDATE orders SET state = ?, message = ? WHERE oid = ?");
-    $stmt->bind_param("ssi", $state, $message, $oid);
-    $stmt->execute();
+    $conn->begin_transaction();
+    try {
+        $stmt = $conn->prepare("UPDATE orders SET state = ?, message = ? WHERE oid = ?");
+        $stmt->bind_param("ssi", $state, $message, $oid);
+        $stmt->execute();
 
-    header('Location: orders');
-    exit();
+        $conn->commit();
+
+        header('Location: orders');
+        exit();
+    } catch (Exception $e) {
+        $conn->rollback();
+        throw $e;
+    }
 }
 ?>
 
